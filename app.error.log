@@ -1,0 +1,1196 @@
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.29.222:8080
+[33mPress CTRL+C to quit[0m
+127.0.0.1 - - [04/Aug/2025 08:52:14] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:52:15] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 08:52:15] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 08:52:15] "GET /get-generation-history HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:52:15] "GET /get-settings HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:52:15] "GET /get-system-instructions HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:52:15] "[36mGET /static/uploads/img_op_1754273437601.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 08:53:52] "POST /save-settings HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:53:53] "GET /get-usage-report?range=1d HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:54:15] "POST /generate-prompt HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:54:21] "POST /generate-videos HTTP/1.1" 200 -
+/Users/gauravz/Google/Vibe/MediaGen/app_noservice.py:134: ExperimentalWarning: This method is experimental and may change in future versions.
+  operation = client.models.generate_videos(
+127.0.0.1 - - [04/Aug/2025 08:54:22] "GET /get-generation-history HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:54:26] "GET /video-status/op_1754277861750_0 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:54:31] "GET /video-status/op_1754277861750_0 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:54:36] "GET /video-status/op_1754277861750_0 HTTP/1.1" 200 -
+/Users/gauravz/Google/Vibe/MediaGen/app_noservice.py:146: ExperimentalWarning: This method is experimental and may change in future versions.
+  operation = client.operations.get(operation)
+127.0.0.1 - - [04/Aug/2025 08:54:41] "GET /video-status/op_1754277861750_0 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:54:43] "POST /generate-image-video HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:54:46] "GET /video-status/op_1754277861750_0 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:54:48] "GET /video-status/img_op_1754277883829 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:54:51] "GET /video-status/op_1754277861750_0 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:54:53] "GET /video-status/img_op_1754277883829 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:54:56] "GET /video-status/op_1754277861750_0 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:54:58] "GET /video-status/img_op_1754277883829 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:55:01] "GET /video-status/op_1754277861750_0 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:55:03] "GET /video-status/img_op_1754277883829 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:55:06] "GET /video-status/op_1754277861750_0 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:55:08] "GET /video-status/img_op_1754277883829 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:55:12] "GET /video-status/op_1754277861750_0 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:55:13] "POST /generate-editor-image HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:55:14] "GET /video-status/img_op_1754277883829 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:55:17] "GET /video-status/op_1754277861750_0 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:55:20] "POST /generate-editor-image HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:55:22] "GET /video-status/op_1754277861750_0 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:55:27] "GET /video-status/op_1754277861750_0 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:55:32] "GET /video-status/op_1754277861750_0 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:55:37] "GET /video-status/op_1754277861750_0 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:55:42] "GET /video-status/op_1754277861750_0 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:55:47] "GET /video-status/op_1754277861750_0 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:55:51] "GET /video-status/op_1754277861750_0 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:55:56] "GET /video-status/op_1754277861750_0 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:56:01] "GET /video-status/op_1754277861750_0 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:56:06] "GET /video-status/op_1754277861750_0 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:56:10] "POST /generate-image-video HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:56:11] "GET /video-status/op_1754277861750_0 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:56:12] "GET /get-generation-history HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:56:12] "GET /static/uploads/img_op_1754277970755.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:56:12] "GET /static/uploads/img_op_1754277907284.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:56:12] "GET /static/uploads/img_op_1754277883829.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:56:12] "GET /static/uploads/img_op_1754277900483.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:56:15] "GET /video-status/img_op_1754277970755 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:56:16] "GET /video-status/op_1754277861750_0 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:56:20] "GET /video-status/img_op_1754277970755 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:56:21] "GET /video-status/op_1754277861750_0 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:56:25] "GET /video-status/img_op_1754277970755 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:56:26] "GET /video-status/op_1754277861750_0 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:56:30] "GET /video-status/img_op_1754277970755 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:56:32] "GET /video-status/op_1754277861750_0 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:56:36] "GET /video-status/img_op_1754277970755 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:56:37] "GET /video-status/op_1754277861750_0 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:56:41] "GET /video-status/img_op_1754277970755 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:56:42] "GET /video-status/op_1754277861750_0 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:56:46] "GET /video-status/img_op_1754277970755 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:56:47] "GET /video-status/op_1754277861750_0 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:56:47] "[35m[1mGET /static/videos/op_1754277861750_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 08:56:47] "[35m[1mGET /static/videos/op_1754277861750_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 08:56:47] "[35m[1mGET /static/videos/op_1754277861750_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 08:56:47] "[35m[1mGET /static/videos/op_1754277861750_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 08:56:51] "GET /video-status/img_op_1754277970755 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:56:56] "GET /video-status/img_op_1754277970755 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:57:01] "GET /video-status/img_op_1754277970755 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:57:06] "GET /video-status/img_op_1754277970755 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:57:11] "GET /video-status/img_op_1754277970755 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:57:16] "GET /video-status/img_op_1754277970755 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:57:21] "GET /video-status/img_op_1754277970755 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:57:26] "GET /video-status/img_op_1754277970755 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:57:31] "GET /video-status/img_op_1754277970755 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:57:39] "GET /video-status/img_op_1754277970755 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:58:39] "GET /video-status/img_op_1754277970755 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:59:39] "GET /video-status/img_op_1754277970755 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 08:59:40] "[35m[1mGET /static/videos/img_op_1754277970755.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 08:59:40] "[35m[1mGET /static/videos/img_op_1754277970755.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 08:59:40] "[35m[1mGET /static/videos/img_op_1754277970755.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 08:59:40] "[35m[1mGET /static/videos/img_op_1754277970755.mp4 HTTP/1.1[0m" 206 -
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [04/Aug/2025 09:34:54] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 09:34:54] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:34:54] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:34:55] "GET /get-settings HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 09:34:55] "GET /get-system-instructions HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 09:34:55] "GET /get-generation-history HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 09:34:55] "GET /static/uploads/img_op_1754277970755.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 09:34:55] "GET /static/uploads/img_op_1754277907284.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 09:34:55] "GET /static/uploads/img_op_1754277900483.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 09:34:55] "GET /static/uploads/img_op_1754277883829.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 09:34:55] "GET /static/uploads/img_op_1754273437601.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 09:34:55] "[35m[1mGET /static/videos/img_op_1754277970755.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 09:34:55] "[35m[1mGET /static/videos/op_1754277861750_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 09:34:55] "[35m[1mGET /static/videos/img_op_1754277970755.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 09:34:55] "[35m[1mGET /static/videos/op_1754277861750_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 09:34:55] "[35m[1mGET /static/videos/img_op_1754277970755.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 09:34:55] "[35m[1mGET /static/videos/img_op_1754277970755.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 09:34:55] "[35m[1mGET /static/videos/op_1754277861750_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 09:34:55] "[35m[1mGET /static/videos/op_1754277861750_0.mp4 HTTP/1.1[0m" 206 -
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.29.222:8080
+[33mPress CTRL+C to quit[0m
+127.0.0.1 - - [04/Aug/2025 09:35:32] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 09:35:32] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:35:32] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:35:33] "GET /get-system-instructions HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 09:35:33] "GET /get-settings HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 09:35:33] "GET /get-generation-history HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 09:35:33] "[36mGET /static/uploads/img_op_1754273437601.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:35:33] "[36mGET /static/uploads/img_op_1754277907284.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:35:33] "[35m[1mGET /static/videos/img_op_1754277970755.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 09:35:33] "[36mGET /static/uploads/img_op_1754277970755.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:35:33] "[36mGET /static/uploads/img_op_1754277900483.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:35:33] "[36mGET /static/uploads/img_op_1754277883829.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:35:33] "[35m[1mGET /static/videos/op_1754277861750_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 09:35:33] "[35m[1mGET /static/videos/img_op_1754277970755.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 09:35:33] "[35m[1mGET /static/videos/img_op_1754277970755.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 09:35:33] "[35m[1mGET /static/videos/op_1754277861750_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 09:35:33] "[35m[1mGET /static/videos/img_op_1754277970755.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 09:35:33] "[35m[1mGET /static/videos/op_1754277861750_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 09:35:34] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 09:35:34] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:35:34] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:35:34] "GET /get-system-instructions HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 09:35:34] "GET /get-settings HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 09:35:34] "GET /get-generation-history HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 09:35:35] "[36mGET /static/uploads/img_op_1754277970755.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:35:35] "[36mGET /static/uploads/img_op_1754277900483.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:35:35] "[36mGET /static/uploads/img_op_1754277907284.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:35:35] "[36mGET /static/uploads/img_op_1754277883829.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:35:35] "[36mGET /static/uploads/img_op_1754273437601.png HTTP/1.1[0m" 304 -
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [04/Aug/2025 09:35:51] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 09:35:51] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:35:51] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:35:51] "GET /get-generation-history HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 09:35:52] "GET /get-system-instructions HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 09:35:52] "GET /get-settings HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 09:35:52] "[36mGET /static/uploads/img_op_1754277883829.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:35:52] "[36mGET /static/uploads/img_op_1754277900483.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:35:52] "[36mGET /static/uploads/img_op_1754277970755.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:35:52] "[36mGET /static/uploads/img_op_1754277907284.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:35:52] "[36mGET /static/uploads/img_op_1754273437601.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:35:53] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 09:35:53] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:35:53] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:35:54] "GET /get-generation-history HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 09:35:54] "GET /get-system-instructions HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 09:35:54] "GET /get-settings HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 09:35:54] "[36mGET /static/uploads/img_op_1754277970755.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:35:54] "[36mGET /static/uploads/img_op_1754277907284.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:35:54] "[36mGET /static/uploads/img_op_1754277900483.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:35:54] "[36mGET /static/uploads/img_op_1754277883829.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:35:54] "[36mGET /static/uploads/img_op_1754273437601.png HTTP/1.1[0m" 304 -
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.29.222:8080
+[33mPress CTRL+C to quit[0m
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [04/Aug/2025 09:36:18] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 09:36:18] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:36:18] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:36:18] "GET /get-settings HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 09:36:18] "GET /get-generation-history HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 09:36:18] "GET /get-system-instructions HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 09:36:19] "[35m[1mGET /static/videos/img_op_1754277970755.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 09:36:19] "[36mGET /static/uploads/img_op_1754277970755.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:36:19] "[36mGET /static/uploads/img_op_1754277900483.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:36:19] "[36mGET /static/uploads/img_op_1754277907284.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:36:19] "[36mGET /static/uploads/img_op_1754277883829.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:36:19] "[36mGET /static/uploads/img_op_1754273437601.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 09:36:19] "[35m[1mGET /static/videos/op_1754277861750_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 09:36:19] "[35m[1mGET /static/videos/img_op_1754277970755.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 09:36:19] "[35m[1mGET /static/videos/op_1754277861750_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 09:36:19] "[35m[1mGET /static/videos/img_op_1754277970755.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 09:36:19] "[35m[1mGET /static/videos/op_1754277861750_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 09:36:19] "[35m[1mGET /static/videos/op_1754277861750_0.mp4 HTTP/1.1[0m" 206 -
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [04/Aug/2025 10:25:56] "GET /get-generation-history HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:25:56] "[35m[1mGET /static/videos/img_op_1754277970755.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 10:25:56] "[35m[1mGET /static/videos/op_1754277861750_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 10:25:56] "[35m[1mGET /static/videos/img_op_1754277970755.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 10:25:56] "[35m[1mGET /static/videos/op_1754277861750_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 10:25:56] "[35m[1mGET /static/videos/img_op_1754277970755.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 10:25:56] "[35m[1mGET /static/videos/op_1754277861750_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 10:25:56] "[35m[1mGET /static/videos/img_op_1754277970755.mp4 HTTP/1.1[0m" 206 -
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [04/Aug/2025 10:30:15] "GET /get-generation-history HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:30:15] "[35m[1mGET /static/videos/img_op_1754277970755.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 10:30:15] "[35m[1mGET /static/videos/op_1754277861750_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 10:30:15] "[35m[1mGET /static/videos/img_op_1754277970755.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 10:30:15] "[35m[1mGET /static/videos/op_1754277861750_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 10:30:15] "[35m[1mGET /static/videos/op_1754277861750_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 10:30:15] "[35m[1mGET /static/videos/img_op_1754277970755.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 10:30:15] "[35m[1mGET /static/videos/op_1754277861750_0.mp4 HTTP/1.1[0m" 206 -
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [04/Aug/2025 10:30:23] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:30:23] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:30:23] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:30:23] "GET /get-generation-history HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:30:23] "GET /get-system-instructions HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:30:23] "GET /get-settings HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:30:24] "[36mGET /static/uploads/img_op_1754277907284.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:30:24] "[36mGET /static/uploads/img_op_1754277970755.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:30:24] "[36mGET /static/uploads/img_op_1754277900483.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:30:24] "[36mGET /static/uploads/img_op_1754273437601.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:30:24] "[36mGET /static/uploads/img_op_1754277883829.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:30:25] "GET /get-generation-history HTTP/1.1" 200 -
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [04/Aug/2025 10:30:28] "POST /save-settings HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:30:28] "POST /save-settings HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:30:29] "GET /get-usage-report?range=1d HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:30:29] "GET /get-usage-report?range=1d HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:30:29] "POST /save-settings HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:30:29] "GET /get-usage-report?range=1d HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:30:31] "GET /get-generation-history HTTP/1.1" 200 -
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [04/Aug/2025 10:30:42] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:30:42] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:30:42] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:30:42] "GET /get-generation-history HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:30:42] "GET /get-system-instructions HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:30:42] "GET /get-settings HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:30:42] "[36mGET /static/uploads/img_op_1754277970755.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:30:42] "[36mGET /static/uploads/img_op_1754277907284.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:30:42] "[36mGET /static/uploads/img_op_1754277900483.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:30:42] "[36mGET /static/uploads/img_op_1754277883829.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:30:42] "[36mGET /static/uploads/img_op_1754273437601.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:30:44] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:30:44] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:30:44] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:30:44] "GET /get-generation-history HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:30:44] "GET /get-system-instructions HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:30:44] "GET /get-settings HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:30:44] "[36mGET /static/uploads/img_op_1754277970755.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:30:44] "[36mGET /static/uploads/img_op_1754277907284.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:30:44] "[36mGET /static/uploads/img_op_1754277900483.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:30:44] "[36mGET /static/uploads/img_op_1754277883829.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:30:44] "[36mGET /static/uploads/img_op_1754273437601.png HTTP/1.1[0m" 304 -
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [04/Aug/2025 10:31:03] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:31:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:31:03] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:31:04] "GET /get-settings HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:31:04] "GET /get-system-instructions HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:31:04] "GET /get-generation-history HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:31:04] "[36mGET /static/uploads/img_op_1754277970755.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:31:04] "[36mGET /static/uploads/img_op_1754277907284.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:31:04] "[36mGET /static/uploads/img_op_1754277900483.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:31:04] "[36mGET /static/uploads/img_op_1754277883829.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:31:04] "[36mGET /static/uploads/img_op_1754273437601.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:31:04] "[35m[1mGET /static/videos/img_op_1754277970755.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 10:31:04] "[35m[1mGET /static/videos/op_1754277861750_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 10:31:04] "[35m[1mGET /static/videos/op_1754277861750_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 10:31:04] "[35m[1mGET /static/videos/img_op_1754277970755.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 10:31:04] "[35m[1mGET /static/videos/img_op_1754277970755.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 10:31:04] "[35m[1mGET /static/videos/op_1754277861750_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 10:31:04] "[35m[1mGET /static/videos/op_1754277861750_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 10:31:04] "[35m[1mGET /static/videos/img_op_1754277970755.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 10:31:04] "GET /get-generation-history HTTP/1.1" 200 -
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [04/Aug/2025 10:31:32] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:31:33] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:31:33] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:31:33] "GET /get-system-instructions HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:31:33] "GET /get-settings HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:31:33] "GET /get-generation-history HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:31:33] "[36mGET /static/uploads/img_op_1754277883829.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:31:33] "[36mGET /static/uploads/img_op_1754277970755.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:31:33] "[36mGET /static/uploads/img_op_1754277900483.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:31:33] "[36mGET /static/uploads/img_op_1754273437601.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:31:33] "[36mGET /static/uploads/img_op_1754277907284.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:31:34] "GET /get-generation-history HTTP/1.1" 200 -
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [04/Aug/2025 10:31:37] "[35m[1mGET /static/videos/img_op_1754277970755.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 10:31:37] "[35m[1mGET /static/videos/img_op_1754277970755.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 10:31:37] "[35m[1mGET /static/videos/img_op_1754277970755.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 10:31:37] "[35m[1mGET /static/videos/img_op_1754277970755.mp4 HTTP/1.1[0m" 206 -
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [04/Aug/2025 10:31:40] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [04/Aug/2025 10:31:40] "[35m[1mGET /static/videos/img_op_1754277970755.mp4 HTTP/1.1[0m" 206 -
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [04/Aug/2025 10:31:53] "[35m[1mGET /static/videos/img_op_1754277970755.mp4 HTTP/1.1[0m" 206 -
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [04/Aug/2025 10:32:35] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:32:36] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:32:36] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:32:36] "GET /get-system-instructions HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:32:36] "GET /get-settings HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:32:36] "GET /get-generation-history HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:32:36] "[36mGET /static/uploads/img_op_1754277970755.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:32:36] "[36mGET /static/uploads/img_op_1754277883829.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:32:36] "[36mGET /static/uploads/img_op_1754277907284.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:32:36] "[36mGET /static/uploads/img_op_1754277900483.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:32:36] "[36mGET /static/uploads/img_op_1754273437601.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:32:36] "[35m[1mGET /static/videos/op_1754277861750_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 10:32:36] "[35m[1mGET /static/videos/op_1754277861750_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 10:32:36] "[35m[1mGET /static/videos/op_1754277861750_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 10:32:36] "[35m[1mGET /static/videos/op_1754277861750_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 10:32:37] "GET /get-generation-history HTTP/1.1" 200 -
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [04/Aug/2025 10:32:43] "POST /save-settings HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:32:43] "GET /get-usage-report?range=1d HTTP/1.1" 200 -
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [04/Aug/2025 10:33:05] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:33:05] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:33:05] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:33:05] "GET /get-generation-history HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:33:05] "GET /get-system-instructions HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:33:05] "GET /get-settings HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:33:05] "[36mGET /static/uploads/img_op_1754277970755.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:33:05] "[36mGET /static/uploads/img_op_1754277907284.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:33:05] "[36mGET /static/uploads/img_op_1754277900483.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:33:05] "[36mGET /static/uploads/img_op_1754277883829.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:33:05] "[36mGET /static/uploads/img_op_1754273437601.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:33:05] "[35m[1mGET /static/videos/img_op_1754277970755.mp4 HTTP/1.1[0m" 206 -
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+127.0.0.1 - - [04/Aug/2025 10:33:06] "GET /get-generation-history HTTP/1.1" 200 -
+Address already in use
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.29.222:8080
+[33mPress CTRL+C to quit[0m
+127.0.0.1 - - [04/Aug/2025 10:34:03] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:34:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:34:03] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:34:04] "GET /get-generation-history HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:34:04] "GET /get-system-instructions HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:34:04] "GET /get-settings HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:34:05] "GET /get-generation-history HTTP/1.1" 200 -
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.29.222:8080
+[33mPress CTRL+C to quit[0m
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.29.222:8080
+[33mPress CTRL+C to quit[0m
+127.0.0.1 - - [04/Aug/2025 10:38:07] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:38:08] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:38:08] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:38:08] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 10:38:08] "GET /get-generation-history HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:38:08] "GET /get-settings HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 10:38:08] "GET /get-system-instructions HTTP/1.1" 200 -

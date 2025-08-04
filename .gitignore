@@ -1,0 +1,15 @@
+key.json
+static/videos/
+static/uploads/
+
+# Ignore all json files
+*.json
+
+# Ignore common media file extensions
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.mp4
+*.mov
+*.avi

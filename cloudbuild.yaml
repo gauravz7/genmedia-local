@@ -1,0 +1,27 @@
+steps:
+# Build the container image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/my-app/app-noservice:latest', '.']
+
+# Push the container image to Artifact Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/my-app/app-noservice:latest']
+
+# Deploy container image to Cloud Run
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args:
+  - 'run'
+  - 'deploy'
+  - 'app-noservice'
+  - '--image'
+  - 'us-central1-docker.pkg.dev/$PROJECT_ID/my-app/app-noservice:latest'
+  - '--region'
+  - 'us-central1'
+  - '--platform'
+  - 'managed'
+  - '--allow-unauthenticated'
+  - '--set-env-vars'
+  - 'GCP_PROJECT=$PROJECT_ID,GCS_BUCKET_NAME=gk-test-veo'
+images:
+- 'us-central1-docker.pkg.dev/$PROJECT_ID/my-app/app-noservice:latest'

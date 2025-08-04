@@ -1,0 +1,11 @@
+Flask
+google-generativeai
+google-cloud-storage
+Flask-SQLAlchemy
+gunicorn
+google-cloud-monitoring
+Pillow
+requests
+google-cloud-aiplatform
+protobuf
+google-auth
