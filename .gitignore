@@ -1,6 +1,7 @@
 key.json
 static/videos/
 static/uploads/
+oldcode/
 
 # Ignore all json files
 *.json
