@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body data-bs-theme="dark">
+    <div id="loading-overlay">
+        <div class="spinner"></div>
+    </div>
     <div class="container mt-5">
         <div class="header">
             <h1>Veo AI Prompt Engineering</h1>
@@ -61,82 +64,45 @@
                             </select>
                             <button id="delete-instruction-btn" class="btn btn-outline-danger" type="button">Delete</button>
                         </div>
-                        <textarea id="system-instructions" class="form-control" rows="8">You are an expert video prompt engineer for Google's Veo model. Your task is to construct the most effective and optimal prompt in a JSON format based on the user's request.
-
-Here are some examples of high-quality prompts:
-
-Example 1:
-{
-  "shot": {
-    "composition": "sushi flying mid-air in freeze-frame, ingredients slicing through slow-mo then slamming into a box layout",
-    "lens": "35mm with fast rack focus",
-    "frame_rate": "1500fps during slicing and drops, 60fps tracking",
-    "camera_movement": "whip pans, snap zoom on impact, bullet-time swirl around salmon cut"
-  },
-  "subject": {
-    "description": "exploding sushi assortment — salmon, maki, ebi, avocado, rice burst",
-    "wardrobe": "",
-    "props": "dripping soy, flying ginger, vapor mist, kinetic chopsticks"
-  },
-  "scene": {
-    "location": "black void with glowing grid, floating sushi elements",
-    "time_of_day": "stylized timeless",
-    "environment": "mist, air swirls, kinetic chop platform"
-  },
-  "visual_details": {
-    "action": "sashimi slices in air, rice explodes into shape, box slams shut in final impact burst, chopsticks cross like a seal",
-    "special_effects": "rice shockwave, soy splash trails, steam blast on drop",
-    "hair_clothing_motion": ""
-  },
-  "cinematography": {
-    "lighting": "dramatic side light, gloss shimmer pulses on fish",
-    "color_palette": "lava orange, sea green, high-gloss black, neon edges",
-    "tone": "premium, aggressive, ultra-fresh"
-  },
-  "audio": {
-    "music": "trap beat with cinematic bass hits and percussive rhythm",
-    "ambient": "air slice, sushi drop echo",
-    "sound_effects": "rice crackle, soy sizzle, blade whoosh",
-    "mix_level": "punchy mix, FX-synced with hard stereo hits"
-  },
-  "dialogue": {
-    "character": "",
-    "line": "",
-    "subtitles": false
-  }
-}
-
-Example 2:
-[
-{
-"scene": 1,
-"duration": "8 seconds",
-"aspect_ratio": "16:9",
-"characters": [
-{
-"name": "Benny",
-"description": "Cartoonish young man with oversized eyes, warm smile, tousled hair; dressed in cozy kitchen loungewear; expressive and animated"
-}
-],
-"setting": "A pristine, morning-lit kitchen with a marble countertop. A slice of white bread and a Reese’s peanut butter jar sit side by side, glowing subtly under soft morning sunlight.",
-"camera": {
-"angle": "overhead cinematic",
-"movement": "slow push-in toward the Reese jar",
-"focus": "shallow depth on the peanut butter lid and toast"
-},
-"lighting": "Warm, golden-hour morning light with reflective marble gleam",
-"music": "Light piano and plucked strings (continues throughout all scenes)",
-"tone": "Whimsical, gentle anticipation",
-"vfx": [
-"As Benny reaches for the jar, the lid spins off on its own, floating mid-air",
-"A glowing swirl of chocolate and peanut butter rises from the jar like magical smoke",
-"Tiny sparkles and floating Reese cups orbit the swirl briefly"
-],
-"transition_to_next": "The swirl envelops the toast and camera dives into the vortex"
-}
-]
-
-Now, generate a new prompt based on the user's request, following the structure of the examples. Do not add any details that are not present in the user's request. Output ONLY the final JSON prompt, without any introduction or explanation.</textarea>
+                        <textarea id="system-instructions" class="form-control" rows="8">
+YAML:
+-
+  metadata:
+    prompt_name: "Scene 1"
+    base_style: "Cinematic, 4K, realistic"
+    aspect_ratio: "16:9"
+    scene_description: "A [adjective] [location] at [time of day]."
+    camera_setup: "[camera angle], [lens type]."
+    camera_movement: "[camera movement description]."
+    key_elements:
+      - "[key element 1]"
+      - "[key element 2]"
+    negative_prompts: ["no watermarks", "no text overlays", "no captions", "no humans visible", "no music"]
+  timeline:
+    - sequence: 1
+      timestamp: "00:00-00:08"
+      action: "[Detailed action description for the first 8 seconds]."
+      voice: "[Voiceover or dialogue for this sequence]."
+      audio: "[Audio description for this sequence]."
+-
+  metadata:
+    prompt_name: "Scene 2"
+    base_style: "Cinematic, 4K, realistic"
+    aspect_ratio: "16:9"
+    scene_description: "A [adjective] [location] at [time of day]."
+    camera_setup: "[camera angle], [lens type]."
+    camera_movement: "[camera movement description]."
+    key_elements:
+      - "[key element 1]"
+      - "[key element 2]"
+    negative_prompts: ["no watermarks", "no text overlays", "no captions", "no humans visible", "no music"]
+  timeline:
+    - sequence: 2
+      timestamp: "00:00-00:08"
+      action: "[Detailed action description for the first 8 seconds]."
+      voice: "[Voiceover or dialogue for this sequence]."
+      audio: "[Audio description for this sequence]."
+</textarea>
                         <div class="input-group mt-2">
                             <input type="text" id="save-instruction-name" class="form-control" placeholder="Enter name to save instruction...">
                             <button id="save-instruction-btn" class="btn btn-outline-secondary" type="button">Save</button>

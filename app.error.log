@@ -1194,3 +1194,416 @@ Port 8080 is in use by another program. Either identify and stop that program, o
 127.0.0.1 - - [04/Aug/2025 10:38:08] "GET /get-generation-history HTTP/1.1" 200 -
 127.0.0.1 - - [04/Aug/2025 10:38:08] "GET /get-settings HTTP/1.1" 200 -
 127.0.0.1 - - [04/Aug/2025 10:38:08] "GET /get-system-instructions HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 11:44:09] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 11:44:09] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 11:44:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 11:44:10] "GET /get-settings HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 11:44:10] "GET /get-generation-history HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 11:44:10] "GET /get-system-instructions HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 12:23:27] "GET /get-generation-history HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 12:23:33] "POST /save-settings HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 12:23:33] "GET /get-usage-report?range=1d HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 12:23:56] "GET /get-generation-history HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 13:40:32] "POST /save-system-instruction HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 13:40:32] "GET /get-system-instructions HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 13:40:55] "POST /generate-prompt HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 13:41:54] "POST /generate-editor-image HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 13:42:28] "POST /generate-editor-image HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 13:42:41] "POST /generate-editor-image HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 13:43:16] "POST /generate-editor-image HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 13:43:59] "POST /generate-editor-image HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 13:44:32] "GET /get-generation-history HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 13:44:32] "GET /static/uploads/img_op_1754295182177.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 13:44:32] "GET /static/uploads/img_op_1754295223877.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 13:44:32] "GET /static/uploads/img_op_1754295146793.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 13:44:32] "GET /static/uploads/img_op_1754295134158.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 13:44:32] "GET /static/uploads/img_op_1754295099403.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 13:45:07] "POST /generate-editor-image HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 13:45:29] "POST /generate-editor-image HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 13:45:32] "GET /get-generation-history HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 13:45:32] "GET /static/uploads/img_op_1754295314423.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 13:45:32] "GET /static/uploads/img_op_1754295291854.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 13:49:45] "POST /generate-prompt HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 13:50:39] "GET /get-generation-history HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 13:51:59] "POST /generate-editor-image HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 13:52:00] "POST /generate-editor-image HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 13:52:18] "POST /generate-editor-image HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 13:52:51] "POST /generate-editor-image HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 13:53:19] "POST /generate-editor-image HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 13:53:28] "GET /get-generation-history HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 13:53:28] "GET /static/uploads/img_op_1754295758474.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 13:53:28] "GET /static/uploads/img_op_1754295786351.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 13:53:28] "GET /static/uploads/img_op_1754295725905.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 13:53:28] "GET /static/uploads/img_op_1754295705996.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 13:53:28] "GET /static/uploads/img_op_1754295706720.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 13:58:09] "POST /generate-editor-image HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 13:59:27] "POST /generate-editor-image HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 14:01:04] "POST /generate-editor-image HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 14:01:46] "POST /generate-editor-image HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 14:01:49] "GET /get-generation-history HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 14:01:49] "GET /static/uploads/img_op_1754296156731.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 14:01:49] "GET /static/uploads/img_op_1754296251376.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 14:01:49] "GET /static/uploads/img_op_1754296293883.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 14:01:49] "GET /static/uploads/img_op_1754296075961.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 14:04:56] "POST /save-system-instruction HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 14:04:56] "GET /get-system-instructions HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 14:05:36] "POST /generate-prompt HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 14:05:50] "POST /generate-prompt HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 14:06:31] "POST /generate-editor-image HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 14:07:05] "POST /generate-editor-image HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 14:07:48] "POST /generate-editor-image HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 14:08:11] "POST /generate-editor-image HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 14:11:03] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 14:11:04] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 14:11:04] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 14:11:04] "GET /get-settings HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 14:11:04] "GET /get-generation-history HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 14:11:04] "GET /get-system-instructions HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 14:11:05] "GET /static/uploads/img_op_1754296681722.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 14:11:05] "GET /static/uploads/img_op_1754296611861.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 14:11:05] "GET /static/uploads/img_op_1754296578218.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 14:11:05] "[36mGET /static/uploads/img_op_1754296251376.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 14:11:05] "GET /static/uploads/img_op_1754296656390.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 14:11:05] "[36mGET /static/uploads/img_op_1754296293883.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 14:11:05] "[36mGET /static/uploads/img_op_1754296156731.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 14:11:05] "[36mGET /static/uploads/img_op_1754296075961.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 14:11:05] "[36mGET /static/uploads/img_op_1754295786351.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 14:11:05] "[36mGET /static/uploads/img_op_1754295758474.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 14:11:05] "GET /static/uploads/img_op_1754295725905.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 14:11:05] "GET /static/uploads/img_op_1754295706720.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 14:11:05] "GET /static/uploads/img_op_1754295705996.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 14:11:05] "GET /static/uploads/img_op_1754295314423.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 14:11:05] "GET /static/uploads/img_op_1754295291854.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 14:11:05] "GET /static/uploads/img_op_1754295223877.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 14:11:05] "GET /static/uploads/img_op_1754295182177.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 14:11:05] "GET /static/uploads/img_op_1754295146793.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 14:11:05] "GET /static/uploads/img_op_1754295134158.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 14:11:05] "GET /static/uploads/img_op_1754295099403.png HTTP/1.1" 200 -
+[2025-08-04 14:11:50,971] ERROR in app: Exception on /save-system-instruction [POST]
+Traceback (most recent call last):
+  File "/Users/gauravz/miniconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1961, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Users/gauravz/miniconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 944, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: system_instruction.name
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/gauravz/miniconda3/lib/python3.12/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gauravz/miniconda3/lib/python3.12/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gauravz/miniconda3/lib/python3.12/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gauravz/miniconda3/lib/python3.12/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gauravz/Google/Vibe/MediaGen/app_noservice.py", line 375, in save_system_instruction
+    db.session.commit()
+  File "/Users/gauravz/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/scoping.py", line 599, in commit
+    return self._proxied.commit()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gauravz/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/Users/gauravz/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gauravz/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/Users/gauravz/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gauravz/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "/Users/gauravz/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4345, in flush
+    self._flush(objects)
+  File "/Users/gauravz/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4480, in _flush
+    with util.safe_reraise():
+  File "/Users/gauravz/miniconda3/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/Users/gauravz/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4441, in _flush
+    flush_context.execute()
+  File "/Users/gauravz/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/Users/gauravz/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/Users/gauravz/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/Users/gauravz/miniconda3/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/Users/gauravz/miniconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1413, in execute
+    return meth(
+           ^^^^^
+  File "/Users/gauravz/miniconda3/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gauravz/miniconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1635, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gauravz/miniconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1840, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gauravz/miniconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1980, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/Users/gauravz/miniconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2349, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/Users/gauravz/miniconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1961, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Users/gauravz/miniconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 944, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: system_instruction.name
+[SQL: INSERT INTO system_instruction (name, content) VALUES (?, ?)]
+[parameters: ('Image2Char', 'You are an expert is facial description writing. Your information is used by a Painter to exactly recreate the portrait of the person. \nPlease provi ... (236 characters truncated) ... essories if wearing \n9. Any expression on the face \nGive a name to this character. Provide pointed description capturing as much details possible\n')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+127.0.0.1 - - [04/Aug/2025 14:11:51] "[35m[1mPOST /save-system-instruction HTTP/1.1[0m" 500 -
+127.0.0.1 - - [04/Aug/2025 14:12:15] "POST /generate-prompt HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 15:03:00] "[33mGET /login HTTP/1.1[0m" 404 -
+127.0.0.1 - - [04/Aug/2025 15:32:05] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 15:32:05] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 15:32:05] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 15:32:07] "GET /get-settings HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 15:32:07] "GET /get-generation-history HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 15:32:07] "GET /get-system-instructions HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 15:32:07] "[36mGET /static/uploads/img_op_1754296656390.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 15:32:08] "[36mGET /static/uploads/img_op_1754296681722.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 15:32:08] "[36mGET /static/uploads/img_op_1754296611861.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 15:32:08] "[36mGET /static/uploads/img_op_1754296578218.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 15:32:08] "[36mGET /static/uploads/img_op_1754296293883.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 15:32:08] "[36mGET /static/uploads/img_op_1754296156731.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 15:32:08] "[36mGET /static/uploads/img_op_1754296251376.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 15:32:08] "[36mGET /static/uploads/img_op_1754295786351.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 15:32:08] "[36mGET /static/uploads/img_op_1754296075961.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 15:32:08] "[36mGET /static/uploads/img_op_1754295758474.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 15:32:08] "[36mGET /static/uploads/img_op_1754295725905.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 15:32:08] "[36mGET /static/uploads/img_op_1754295706720.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 15:32:08] "[36mGET /static/uploads/img_op_1754295705996.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 15:32:08] "[36mGET /static/uploads/img_op_1754295314423.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 15:32:08] "[36mGET /static/uploads/img_op_1754295291854.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 15:32:08] "[36mGET /static/uploads/img_op_1754295223877.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 15:32:08] "[36mGET /static/uploads/img_op_1754295182177.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 15:32:08] "[36mGET /static/uploads/img_op_1754295146793.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 15:32:08] "[36mGET /static/uploads/img_op_1754295134158.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 15:32:08] "[36mGET /static/uploads/img_op_1754295099403.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Aug/2025 15:32:38] "POST /generate-image-video HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 15:32:43] "GET /video-status/img_op_1754301758783 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 15:32:48] "GET /video-status/img_op_1754301758783 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 15:32:54] "GET /video-status/img_op_1754301758783 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 15:32:59] "GET /video-status/img_op_1754301758783 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 15:33:05] "GET /video-status/img_op_1754301758783 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 15:33:09] "GET /video-status/img_op_1754301758783 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 15:33:14] "GET /video-status/img_op_1754301758783 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 15:33:19] "GET /video-status/img_op_1754301758783 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 15:33:24] "GET /video-status/img_op_1754301758783 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 15:33:29] "GET /video-status/img_op_1754301758783 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 15:33:34] "GET /video-status/img_op_1754301758783 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 15:33:40] "GET /video-status/img_op_1754301758783 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 15:33:44] "GET /video-status/img_op_1754301758783 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 15:33:49] "GET /video-status/img_op_1754301758783 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 15:33:59] "GET /video-status/img_op_1754301758783 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 15:34:59] "GET /video-status/img_op_1754301758783 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 15:35:59] "GET /video-status/img_op_1754301758783 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 15:36:00] "GET /static/uploads/img_op_1754301758783.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Aug/2025 15:39:43] "[35m[1mGET /static/videos/img_op_1754301758783.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 15:39:43] "[35m[1mGET /static/videos/img_op_1754301758783.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 15:39:43] "[35m[1mGET /static/videos/img_op_1754301758783.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 15:39:43] "[35m[1mGET /static/videos/img_op_1754301758783.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 15:45:47] "[35m[1mGET /static/videos/img_op_1754301758783.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 15:45:51] "[35m[1mGET /static/videos/img_op_1754301758783.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [04/Aug/2025 15:45:51] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [04/Aug/2025 15:45:51] "[35m[1mGET /static/videos/img_op_1754301758783.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 08:43:30] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 08:43:30] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 08:43:30] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 08:43:30] "GET /get-settings HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 08:43:30] "GET /get-generation-history HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 08:43:30] "GET /get-system-instructions HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 08:43:30] "[36mGET /static/uploads/img_op_1754296681722.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 08:43:30] "[36mGET /static/uploads/img_op_1754301758783.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 08:43:30] "[36mGET /static/uploads/img_op_1754296293883.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 08:43:30] "[36mGET /static/uploads/img_op_1754296656390.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 08:43:30] "[36mGET /static/uploads/img_op_1754296578218.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 08:43:30] "[36mGET /static/uploads/img_op_1754296611861.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 08:43:30] "[36mGET /static/uploads/img_op_1754296251376.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 08:43:30] "[36mGET /static/uploads/img_op_1754296075961.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 08:43:30] "[36mGET /static/uploads/img_op_1754296156731.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 08:43:30] "[36mGET /static/uploads/img_op_1754295758474.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 08:43:30] "[36mGET /static/uploads/img_op_1754295786351.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 08:43:30] "[36mGET /static/uploads/img_op_1754295706720.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 08:43:30] "[36mGET /static/uploads/img_op_1754295705996.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 08:43:30] "[36mGET /static/uploads/img_op_1754295725905.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 08:43:31] "[36mGET /static/uploads/img_op_1754295314423.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 08:43:31] "[36mGET /static/uploads/img_op_1754295223877.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 08:43:31] "[36mGET /static/uploads/img_op_1754295291854.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 08:43:31] "[36mGET /static/uploads/img_op_1754295182177.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 08:43:31] "[36mGET /static/uploads/img_op_1754295146793.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 08:43:31] "[36mGET /static/uploads/img_op_1754295134158.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 08:43:31] "[35m[1mGET /static/videos/img_op_1754301758783.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 08:43:31] "[36mGET /static/uploads/img_op_1754295099403.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 08:43:31] "[35m[1mGET /static/videos/img_op_1754301758783.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 08:43:31] "[35m[1mGET /static/videos/img_op_1754301758783.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 08:43:31] "[35m[1mGET /static/videos/img_op_1754301758783.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 08:44:51] "POST /generate-prompt HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 08:44:57] "POST /generate-videos HTTP/1.1" 200 -
+/Users/gauravz/Google/Vibe/MediaGen/app_noservice.py:134: ExperimentalWarning: This method is experimental and may change in future versions.
+  operation = client.models.generate_videos(
+127.0.0.1 - - [05/Aug/2025 08:45:03] "GET /video-status/op_1754363697880_0 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 08:45:08] "GET /video-status/op_1754363697880_0 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 08:45:13] "GET /video-status/op_1754363697880_0 HTTP/1.1" 200 -
+/Users/gauravz/Google/Vibe/MediaGen/app_noservice.py:146: ExperimentalWarning: This method is experimental and may change in future versions.
+  operation = client.operations.get(operation)
+127.0.0.1 - - [05/Aug/2025 08:45:20] "GET /video-status/op_1754363697880_0 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 08:45:23] "GET /video-status/op_1754363697880_0 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 08:45:29] "GET /video-status/op_1754363697880_0 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 08:45:33] "GET /video-status/op_1754363697880_0 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 08:45:38] "GET /video-status/op_1754363697880_0 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 08:45:43] "GET /video-status/op_1754363697880_0 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 08:45:48] "GET /video-status/op_1754363697880_0 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 08:45:53] "GET /video-status/op_1754363697880_0 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 08:45:58] "GET /video-status/op_1754363697880_0 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 08:46:26] "GET /video-status/op_1754363697880_0 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 08:46:56] "GET /video-status/op_1754363697880_0 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 08:46:56] "[35m[1mGET /static/videos/op_1754363697880_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 08:46:56] "[35m[1mGET /static/videos/op_1754363697880_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 08:46:56] "[35m[1mGET /static/videos/op_1754363697880_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 08:46:56] "[35m[1mGET /static/videos/op_1754363697880_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 08:46:58] "[35m[1mGET /static/videos/op_1754363697880_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 08:46:58] "[35m[1mGET /static/videos/op_1754363697880_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 08:46:58] "[35m[1mGET /static/videos/op_1754363697880_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 08:46:58] "[35m[1mGET /static/videos/op_1754363697880_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 08:46:58] "[35m[1mGET /static/videos/op_1754363697880_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 08:46:58] "[35m[1mGET /static/videos/op_1754363697880_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 08:46:58] "[35m[1mGET /static/videos/op_1754363697880_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 08:46:58] "[35m[1mGET /static/videos/op_1754363697880_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 08:46:58] "[35m[1mGET /static/videos/op_1754363697880_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 08:46:58] "[35m[1mGET /static/videos/op_1754363697880_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 08:46:59] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [05/Aug/2025 08:46:59] "[35m[1mGET /static/videos/op_1754363697880_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 08:46:59] "[35m[1mGET /static/videos/op_1754363697880_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 08:50:11] "POST /generate-editor-image HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 08:51:53] "POST /generate-editor-image HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 10:04:01] "POST /generate-prompt HTTP/1.1" 200 -
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.29.222:8080
+[33mPress CTRL+C to quit[0m
+127.0.0.1 - - [05/Aug/2025 10:07:09] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 10:07:09] "GET /static/script.js HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 10:07:09] "GET /static/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 10:07:09] "GET /get-generation-history HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 10:07:09] "GET /get-system-instructions HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 10:07:09] "GET /get-settings HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 10:07:10] "[36mGET /static/uploads/img_op_1754301758783.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:07:10] "[36mGET /static/uploads/img_op_1754296656390.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:07:10] "[36mGET /static/uploads/img_op_1754296681722.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:07:10] "GET /static/uploads/img_op_1754364094880.png HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 10:07:10] "[36mGET /static/uploads/img_op_1754296611861.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:07:10] "GET /static/uploads/img_op_1754363999727.png HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 10:07:10] "[36mGET /static/uploads/img_op_1754296578218.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:07:10] "[36mGET /static/uploads/img_op_1754296293883.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:07:10] "[36mGET /static/uploads/img_op_1754296251376.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:07:10] "[36mGET /static/uploads/img_op_1754295786351.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:07:10] "[36mGET /static/uploads/img_op_1754296156731.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:07:10] "[36mGET /static/uploads/img_op_1754296075961.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:07:10] "[36mGET /static/uploads/img_op_1754295758474.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:07:10] "[36mGET /static/uploads/img_op_1754295725905.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:07:10] "[36mGET /static/uploads/img_op_1754295706720.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:07:10] "[36mGET /static/uploads/img_op_1754295705996.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:07:10] "[36mGET /static/uploads/img_op_1754295223877.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:07:10] "[36mGET /static/uploads/img_op_1754295314423.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:07:10] "[36mGET /static/uploads/img_op_1754295291854.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:07:10] "[36mGET /static/uploads/img_op_1754295182177.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:07:10] "[36mGET /static/uploads/img_op_1754295134158.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:07:10] "[36mGET /static/uploads/img_op_1754295146793.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:07:10] "[36mGET /static/uploads/img_op_1754295099403.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:07:10] "[35m[1mGET /static/videos/img_op_1754301758783.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 10:07:10] "[35m[1mGET /static/videos/op_1754363697880_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 10:07:10] "[35m[1mGET /static/videos/img_op_1754301758783.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 10:07:10] "[35m[1mGET /static/videos/op_1754363697880_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 10:07:10] "[35m[1mGET /static/videos/img_op_1754301758783.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 10:07:10] "[35m[1mGET /static/videos/op_1754363697880_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 10:07:10] "[35m[1mGET /static/videos/img_op_1754301758783.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 10:07:44] "POST /generate-prompt HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 10:08:08] "POST /generate-editor-image HTTP/1.1" 200 -
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.29.222:8080
+[33mPress CTRL+C to quit[0m
+127.0.0.1 - - [05/Aug/2025 10:14:29] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 10:14:30] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:14:30] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:14:30] "GET /get-settings HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 10:14:30] "GET /get-system-instructions HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 10:14:30] "GET /get-generation-history HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 10:14:30] "GET /static/uploads/img_op_1754368675743.png HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 10:14:30] "[36mGET /static/uploads/img_op_1754363999727.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:14:30] "[36mGET /static/uploads/img_op_1754364094880.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:14:30] "[36mGET /static/uploads/img_op_1754301758783.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:14:30] "[36mGET /static/uploads/img_op_1754296681722.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:14:30] "[36mGET /static/uploads/img_op_1754296656390.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:14:30] "[36mGET /static/uploads/img_op_1754296611861.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:14:30] "[36mGET /static/uploads/img_op_1754296578218.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:14:30] "[36mGET /static/uploads/img_op_1754296293883.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:14:30] "[36mGET /static/uploads/img_op_1754296156731.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:14:30] "[36mGET /static/uploads/img_op_1754296251376.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:14:30] "[36mGET /static/uploads/img_op_1754295786351.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:14:30] "[36mGET /static/uploads/img_op_1754296075961.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:14:31] "[36mGET /static/uploads/img_op_1754295758474.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:14:31] "[36mGET /static/uploads/img_op_1754295725905.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:14:31] "[36mGET /static/uploads/img_op_1754295706720.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:14:31] "[36mGET /static/uploads/img_op_1754295291854.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:14:31] "[36mGET /static/uploads/img_op_1754295705996.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:14:31] "[36mGET /static/uploads/img_op_1754295314423.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:14:31] "[36mGET /static/uploads/img_op_1754295223877.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:14:31] "[36mGET /static/uploads/img_op_1754295182177.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:14:31] "[36mGET /static/uploads/img_op_1754295146793.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:14:31] "[36mGET /static/uploads/img_op_1754295099403.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:14:31] "[36mGET /static/uploads/img_op_1754295134158.png HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Aug/2025 10:14:31] "[35m[1mGET /static/videos/op_1754363697880_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 10:14:31] "[35m[1mGET /static/videos/img_op_1754301758783.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 10:14:31] "[35m[1mGET /static/videos/op_1754363697880_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 10:14:31] "[35m[1mGET /static/videos/img_op_1754301758783.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 10:14:31] "[35m[1mGET /static/videos/op_1754363697880_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 10:14:31] "[35m[1mGET /static/videos/img_op_1754301758783.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 10:14:31] "[35m[1mGET /static/videos/img_op_1754301758783.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 10:14:31] "[35m[1mGET /static/videos/op_1754363697880_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 10:15:40] "POST /save-system-instruction HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 10:15:40] "GET /get-system-instructions HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 10:16:19] "POST /generate-prompt HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 10:27:05] "POST /generate-videos HTTP/1.1" 200 -
+/Users/gauravz/Google/Vibe/MediaGen/app_noservice.py:134: ExperimentalWarning: This method is experimental and may change in future versions.
+  operation = client.models.generate_videos(
+127.0.0.1 - - [05/Aug/2025 10:27:10] "GET /video-status/op_1754369825726_0 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 10:27:15] "GET /video-status/op_1754369825726_0 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 10:27:20] "GET /video-status/op_1754369825726_0 HTTP/1.1" 200 -
+/Users/gauravz/Google/Vibe/MediaGen/app_noservice.py:146: ExperimentalWarning: This method is experimental and may change in future versions.
+  operation = client.operations.get(operation)
+127.0.0.1 - - [05/Aug/2025 10:27:26] "GET /video-status/op_1754369825726_0 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 10:27:30] "GET /video-status/op_1754369825726_0 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 10:27:35] "GET /video-status/op_1754369825726_0 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 10:27:40] "GET /video-status/op_1754369825726_0 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 10:27:45] "GET /video-status/op_1754369825726_0 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 10:27:50] "GET /video-status/op_1754369825726_0 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 10:27:55] "GET /video-status/op_1754369825726_0 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 10:28:00] "GET /video-status/op_1754369825726_0 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 10:28:05] "GET /video-status/op_1754369825726_0 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 10:28:10] "GET /video-status/op_1754369825726_0 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 10:28:15] "GET /video-status/op_1754369825726_0 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 10:28:26] "GET /video-status/op_1754369825726_0 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 10:29:26] "GET /video-status/op_1754369825726_0 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2025 10:29:26] "[35m[1mGET /static/videos/op_1754369825726_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 10:29:26] "[35m[1mGET /static/videos/op_1754369825726_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 10:29:59] "[35m[1mGET /static/videos/op_1754369825726_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 10:29:59] "[35m[1mGET /static/videos/op_1754369825726_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 10:29:59] "[35m[1mGET /static/videos/op_1754369825726_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 10:30:01] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [05/Aug/2025 10:30:01] "[35m[1mGET /static/videos/op_1754369825726_0.mp4 HTTP/1.1[0m" 206 -
+127.0.0.1 - - [05/Aug/2025 10:30:01] "[35m[1mGET /static/videos/op_1754369825726_0.mp4 HTTP/1.1[0m" 206 -

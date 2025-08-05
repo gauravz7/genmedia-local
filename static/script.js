@@ -1,4 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const loadingOverlay = document.getElementById('loading-overlay');
+
+    function showLoading() {
+        loadingOverlay.style.display = 'flex';
+    }
+
+    function hideLoading() {
+        loadingOverlay.style.display = 'none';
+    }
+
     const generatePromptBtn = document.getElementById('generate-prompt-btn');
     const userPromptTextarea = document.getElementById('user-prompt');
     const systemInstructionsTextarea = document.getElementById('system-instructions');
@@ -101,6 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     async function sendPromptRequest(body) {
+        showLoading();
         try {
             const response = await fetch('/generate-prompt', {
                 method: 'POST',
@@ -114,6 +125,8 @@ document.addEventListener('DOMContentLoaded', function () {
         } catch (error) {
             console.error('Error generating prompt:', error);
             alert('Failed to generate prompt. See console for details.');
+        } finally {
+            hideLoading();
         }
     }
 
@@ -126,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('Please provide a prompt and a refinement instruction.');
             return;
         }
-
+        showLoading();
         try {
             const response = await fetch('/refine-prompt', {
                 method: 'POST',
@@ -140,6 +153,8 @@ document.addEventListener('DOMContentLoaded', function () {
         } catch (error) {
             console.error('Error refining prompt:', error);
             alert('Failed to refine prompt. See console for details.');
+        } finally {
+            hideLoading();
         }
     });
 
@@ -178,6 +193,7 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('Please add prompts to the queue first.');
             return;
         }
+        showLoading();
         try {
             const response = await fetch('/generate-videos', {
                 method: 'POST',
@@ -198,6 +214,7 @@ document.addEventListener('DOMContentLoaded', function () {
         } catch (error) {
             console.error('Error starting video generation:', error);
             alert('Failed to start video generation. See console for details.');
+            hideLoading();
         }
     });
 
@@ -231,6 +248,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     statusBadge.className = 'status-badge text-danger';
                     statusElement.innerHTML += `<br><small>${data.error_message}</small>`;
                     clearInterval(interval);
+                    hideLoading();
                 } else if (data.status === 'completed') {
                     statusBadge.className = 'status-badge text-success';
                     let mediaHtml = '';
@@ -243,6 +261,7 @@ document.addEventListener('DOMContentLoaded', function () {
 `;
                     statusElement.innerHTML = `<p><strong>Prompt:</strong> ${data.prompt}</p>${mediaHtml}`;
                     clearInterval(interval);
+                    hideLoading();
                 }
             } catch (error) {
                 console.error(`Error polling status for ${operationId}:`, error);
@@ -492,8 +511,9 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('Please add items to the image generation queue first.');
             return;
         }
+        showLoading();
         imageVideoStatusContainer.innerHTML = '<h3>Image to Video Generation Status</h3>';
-        imagePromptsForGeneration.forEach(item => {
+        const promises = imagePromptsForGeneration.map(item => {
             const formData = new FormData();
             formData.append('image', item.file);
             formData.append('prompt', item.prompt);
@@ -502,7 +522,7 @@ document.addEventListener('DOMContentLoaded', function () {
             formData.append('seed', item.seed);
             formData.append('aspect_ratio', item.aspectRatio);
 
-            fetch('/generate-image-video', {
+            return fetch('/generate-image-video', {
                 method: 'POST',
                 body: formData
             })
@@ -517,8 +537,17 @@ document.addEventListener('DOMContentLoaded', function () {
                     pollVideoStatus(data.operation_id);
                 }
             })
-            .catch(error => console.error('Error starting image to video generation:', error));
+            .catch(error => {
+                console.error('Error starting image to video generation:', error);
+            });
         });
+
+        Promise.all(promises).finally(() => {
+            // This will hide the loading indicator after all requests are initiated,
+            // but polling will continue in the background.
+            // The individual pollVideoStatus calls will hide the loader when they complete.
+        });
+
         imagePromptsForGeneration = [];
         renderImagePromptQueue();
     });
@@ -534,7 +563,7 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('Please provide a prompt for image generation.');
             return;
         }
-
+        showLoading();
         try {
             const response = await fetch('/generate-editor-image', {
                 method: 'POST',
@@ -564,6 +593,8 @@ document.addEventListener('DOMContentLoaded', function () {
         } catch (error) {
             console.error('Error generating image:', error);
             alert('Failed to generate image. See console for details.');
+        } finally {
+            hideLoading();
         }
     });
 

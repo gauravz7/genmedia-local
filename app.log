@@ -867,3 +867,531 @@
  * Debug mode: off
  * Serving Flask app 'app_noservice'
  * Debug mode: off
+--- [DEBUG] Starting VEO Prompt Generation ---
+[DEBUG] Generating VEO prompt with model: gemini-2.5-flash
+[DEBUG] Sending request to Vertex AI with content: [Part(video_metadata=None, thought=None, code_execution_result=None, executable_code=None, file_data=FileData(file_uri='gs://gk-test-veo/prompt-images/1754295040161.png', mime_type='image/jpeg'), function_call=None, function_response=None, inline_data=None, text=None), 'You are an expert is facial description writing. Your information is used by a Painter to eaactly recreate the potrait of the person. \nPlease provide the following description : \n1. Facial characteristics and features in detail\n2. Hair type and Color\n3. Ethnicity \n4. Country of Origin \n5. Skin color \n6. Age of the person.\n7. Gender of the person.  \nGive a name to this character. Be to the point\n\n\nUser Prompt: Describe\n\nGenerate the final prompt in a valid JSON format.']
+[DEBUG] Received response from Vertex AI.
+--- Generating Editor Image (Operation ID: img_op_1754295099403) ---
+Received Prompt: 
+{
+  "name": "Rajesh",
+  "gender": "Male",
+  "age": "Late 50s to early 60s",
+  "ethnicity": "South Asian",
+  "country_of_origin": "Cannot be definitively determined from the image, but likely from a South Asian country.",
+  "skin_color": "Medium tan with warm undertones.",
+  "facial_characteristics": {
+    "overall_shape": "Oval to round, with moderate fullness in the cheeks.",
+    "eyes": "Dark brown, almond-shaped, with a direct and steady gaze. Slight puffiness/bags under the eyes are noticeable, along with very subtle fine lines at the outer corners. The whites of the eyes are clear.",
+    "eyebrows": "Dark, medium thickness, well-defined, and relatively straight, with a slight furrow between them.",
+    "nose": "Medium-sized with a straight bridge and a slightly wider base, appearing proportionate to the face.",
+    "mouth": "Completely covered by a thick, dark mustache. The overall shape of the mouth suggests full lips beneath.",
+    "mustache": "Thick, dark, and well-groomed, covering the entire philtrum and upper lip.",
+    "chin_jawline": "Rounded chin with visible submental fullness (slight double chin). There is a light stubble visible on the chin and along the jawline.",
+    "forehead": "Broad forehead with a few visible horizontal lines, particularly when viewed up close."
+  },
+  "hair_type_color": {
+    "color": "Dark brown to black, with no visible greying in the main hair. Hints of grey are discernible in the stubble/facial hair.",
+    "type": "Thick, somewhat coarse, and appears straight.",
+    "style": "Receding hairline, especially at the temples. The hair is styled to be swept back and slightly upwards at the front, with some loose, wispy hairs visible near the crown and forehead."
+  }
+}
+
+Rajesh in a supermarket in Delhi, close up shot
+Received Negative Prompt: 
+Received Seed: 42
+Received Aspect Ratio: 16:9
+Step 1: Initializing ImageGenerationModel...
+Step 2: Model Initialized. Preparing to generate images...
+Generation Parameters: {'prompt': '\n{\n  "name": "Rajesh",\n  "gender": "Male",\n  "age": "Late 50s to early 60s",\n  "ethnicity": "South Asian",\n  "country_of_origin": "Cannot be definitively determined from the image, but likely from a South Asian country.",\n  "skin_color": "Medium tan with warm undertones.",\n  "facial_characteristics": {\n    "overall_shape": "Oval to round, with moderate fullness in the cheeks.",\n    "eyes": "Dark brown, almond-shaped, with a direct and steady gaze. Slight puffiness/bags under the eyes are noticeable, along with very subtle fine lines at the outer corners. The whites of the eyes are clear.",\n    "eyebrows": "Dark, medium thickness, well-defined, and relatively straight, with a slight furrow between them.",\n    "nose": "Medium-sized with a straight bridge and a slightly wider base, appearing proportionate to the face.",\n    "mouth": "Completely covered by a thick, dark mustache. The overall shape of the mouth suggests full lips beneath.",\n    "mustache": "Thick, dark, and well-groomed, covering the entire philtrum and upper lip.",\n    "chin_jawline": "Rounded chin with visible submental fullness (slight double chin). There is a light stubble visible on the chin and along the jawline.",\n    "forehead": "Broad forehead with a few visible horizontal lines, particularly when viewed up close."\n  },\n  "hair_type_color": {\n    "color": "Dark brown to black, with no visible greying in the main hair. Hints of grey are discernible in the stubble/facial hair.",\n    "type": "Thick, somewhat coarse, and appears straight.",\n    "style": "Receding hairline, especially at the temples. The hair is styled to be swept back and slightly upwards at the front, with some loose, wispy hairs visible near the crown and forehead."\n  }\n}\n\nRajesh in a supermarket in Delhi, close up shot', 'number_of_images': 1, 'aspect_ratio': '16:9', 'negative_prompt': '', 'person_generation': 'allow_all', 'safety_filter_level': 'block_few', 'add_watermark': False, 'seed': 42}
+Step 3: Images generated. Response received.
+Step 4: Image bytes extracted. Saving locally...
+Step 5: Image saved to static/uploads/img_op_1754295099403.png. Updating history.
+Step 6: History updated. Encoding and returning image data.
+--- Generating Editor Image (Operation ID: img_op_1754295134158) ---
+Received Prompt: 
+{
+  "name": "Rajesh",
+  "gender": "Male",
+  "age": "Late 50s to early 60s",
+  "ethnicity": "South Asian",
+  "country_of_origin": "Indian",
+  "skin_color": "Medium tan with warm undertones.",
+  "facial_characteristics": {
+    "overall_shape": "Oval to round, with moderate fullness in the cheeks.",
+    "eyes": "Dark brown, almond-shaped, with a direct and steady gaze. Slight puffiness/bags under the eyes are noticeable, along with very subtle fine lines at the outer corners. The whites of the eyes are clear.",
+    "eyebrows": "Dark, medium thickness, well-defined, and relatively straight, with a slight furrow between them.",
+    "nose": "Medium-sized with a straight bridge and a slightly wider base, appearing proportionate to the face.",
+    "mouth": "Completely covered by a thick, dark mustache. The overall shape of the mouth suggests full lips beneath.",
+    "mustache": "Thick, dark, and well-groomed, covering the entire philtrum and upper lip.",
+    "chin_jawline": "Rounded chin with visible submental fullness (slight double chin). There is a light stubble visible on the chin and along the jawline.",
+    "forehead": "Broad forehead with a few visible horizontal lines, particularly when viewed up close."
+  },
+  "hair_type_color": {
+    "color": "Dark brown to black, with no visible greying in the main hair. Hints of grey are discernible in the stubble/facial hair.",
+    "type": "Thick, somewhat coarse, and appears straight.",
+    "style": "Receding hairline, especially at the temples. The hair is styled to be swept back and slightly upwards at the front, with some loose, wispy hairs visible near the crown and forehead."
+  }
+}
+
+Rajesh in a supermarket in Delhi, close up shot
+Received Negative Prompt: 
+Received Seed: 42
+Received Aspect Ratio: 16:9
+Step 1: Initializing ImageGenerationModel...
+Step 2: Model Initialized. Preparing to generate images...
+Generation Parameters: {'prompt': '\n{\n  "name": "Rajesh",\n  "gender": "Male",\n  "age": "Late 50s to early 60s",\n  "ethnicity": "South Asian",\n  "country_of_origin": "Indian",\n  "skin_color": "Medium tan with warm undertones.",\n  "facial_characteristics": {\n    "overall_shape": "Oval to round, with moderate fullness in the cheeks.",\n    "eyes": "Dark brown, almond-shaped, with a direct and steady gaze. Slight puffiness/bags under the eyes are noticeable, along with very subtle fine lines at the outer corners. The whites of the eyes are clear.",\n    "eyebrows": "Dark, medium thickness, well-defined, and relatively straight, with a slight furrow between them.",\n    "nose": "Medium-sized with a straight bridge and a slightly wider base, appearing proportionate to the face.",\n    "mouth": "Completely covered by a thick, dark mustache. The overall shape of the mouth suggests full lips beneath.",\n    "mustache": "Thick, dark, and well-groomed, covering the entire philtrum and upper lip.",\n    "chin_jawline": "Rounded chin with visible submental fullness (slight double chin). There is a light stubble visible on the chin and along the jawline.",\n    "forehead": "Broad forehead with a few visible horizontal lines, particularly when viewed up close."\n  },\n  "hair_type_color": {\n    "color": "Dark brown to black, with no visible greying in the main hair. Hints of grey are discernible in the stubble/facial hair.",\n    "type": "Thick, somewhat coarse, and appears straight.",\n    "style": "Receding hairline, especially at the temples. The hair is styled to be swept back and slightly upwards at the front, with some loose, wispy hairs visible near the crown and forehead."\n  }\n}\n\nRajesh in a supermarket in Delhi, close up shot', 'number_of_images': 1, 'aspect_ratio': '16:9', 'negative_prompt': '', 'person_generation': 'allow_all', 'safety_filter_level': 'block_few', 'add_watermark': False, 'seed': 42}
+--- Generating Editor Image (Operation ID: img_op_1754295146793) ---
+Received Prompt: 
+{
+  "name": "Rajesh",
+  "gender": "Male",
+  "age": "Late 50s to early 60s",
+  "ethnicity": "South Asian",
+  "country_of_origin": "Indian",
+  "skin_color": "Medium tan with warm undertones.",
+  "facial_characteristics": {
+    "overall_shape": "Oval to round, with moderate fullness in the cheeks.",
+    "eyes": "Dark brown, almond-shaped, with a direct and steady gaze. Slight puffiness/bags under the eyes are noticeable, along with very subtle fine lines at the outer corners. The whites of the eyes are clear.",
+    "eyebrows": "Dark, medium thickness, well-defined, and relatively straight, with a slight furrow between them.",
+    "nose": "Medium-sized with a straight bridge and a slightly wider base, appearing proportionate to the face.",
+    "mouth": "Completely covered by a thick, dark mustache. The overall shape of the mouth suggests full lips beneath.",
+    "mustache": "Thick, dark, and well-groomed, covering the entire philtrum and upper lip.",
+    "chin_jawline": "Rounded chin with visible submental fullness (slight double chin). There is a light stubble visible on the chin and along the jawline.",
+    "forehead": "Broad forehead with a few visible horizontal lines, particularly when viewed up close."
+  },
+  "hair_type_color": {
+    "color": "Dark brown to black, with no visible greying in the main hair. Hints of grey are discernible in the stubble/facial hair.",
+    "type": "Thick, somewhat coarse, and appears straight.",
+    "style": "Receding hairline, especially at the temples. The hair is styled to be swept back and slightly upwards at the front, with some loose, wispy hairs visible near the crown and forehead."
+  }
+}
+
+Rajesh in a supermarket in Delhi, close up shot
+Received Negative Prompt: 
+Received Seed: 42
+Received Aspect Ratio: 16:9
+Step 1: Initializing ImageGenerationModel...
+Step 3: Images generated. Response received.
+Step 4: Image bytes extracted. Saving locally...
+Step 5: Image saved to static/uploads/img_op_1754295134158.png. Updating history.
+Step 6: History updated. Encoding and returning image data.
+Step 2: Model Initialized. Preparing to generate images...
+Generation Parameters: {'prompt': '\n{\n  "name": "Rajesh",\n  "gender": "Male",\n  "age": "Late 50s to early 60s",\n  "ethnicity": "South Asian",\n  "country_of_origin": "Indian",\n  "skin_color": "Medium tan with warm undertones.",\n  "facial_characteristics": {\n    "overall_shape": "Oval to round, with moderate fullness in the cheeks.",\n    "eyes": "Dark brown, almond-shaped, with a direct and steady gaze. Slight puffiness/bags under the eyes are noticeable, along with very subtle fine lines at the outer corners. The whites of the eyes are clear.",\n    "eyebrows": "Dark, medium thickness, well-defined, and relatively straight, with a slight furrow between them.",\n    "nose": "Medium-sized with a straight bridge and a slightly wider base, appearing proportionate to the face.",\n    "mouth": "Completely covered by a thick, dark mustache. The overall shape of the mouth suggests full lips beneath.",\n    "mustache": "Thick, dark, and well-groomed, covering the entire philtrum and upper lip.",\n    "chin_jawline": "Rounded chin with visible submental fullness (slight double chin). There is a light stubble visible on the chin and along the jawline.",\n    "forehead": "Broad forehead with a few visible horizontal lines, particularly when viewed up close."\n  },\n  "hair_type_color": {\n    "color": "Dark brown to black, with no visible greying in the main hair. Hints of grey are discernible in the stubble/facial hair.",\n    "type": "Thick, somewhat coarse, and appears straight.",\n    "style": "Receding hairline, especially at the temples. The hair is styled to be swept back and slightly upwards at the front, with some loose, wispy hairs visible near the crown and forehead."\n  }\n}\n\nRajesh in a supermarket in Delhi, close up shot', 'number_of_images': 1, 'aspect_ratio': '16:9', 'negative_prompt': '', 'person_generation': 'allow_all', 'safety_filter_level': 'block_few', 'add_watermark': False, 'seed': 42}
+Step 3: Images generated. Response received.
+Step 4: Image bytes extracted. Saving locally...
+Step 5: Image saved to static/uploads/img_op_1754295146793.png. Updating history.
+Step 6: History updated. Encoding and returning image data.
+--- Generating Editor Image (Operation ID: img_op_1754295182177) ---
+Received Prompt: 
+{
+  "name": "Rajesh",
+  "gender": "Male",
+  "age": "Late 50s to early 60s",
+  "ethnicity": "South Asian",
+  "country_of_origin": "Indian",
+  "skin_color": "Medium tan with warm undertones.",
+  "facial_characteristics": {
+    "overall_shape": "Oval to round, with moderate fullness in the cheeks.",
+    "eyes": "Dark brown, almond-shaped, with a direct and steady gaze. Slight puffiness/bags under the eyes are noticeable, along with very subtle fine lines at the outer corners. The whites of the eyes are clear.",
+    "eyebrows": "Dark, medium thickness, well-defined, and relatively straight, with a slight furrow between them.",
+    "nose": "Medium-sized with a straight bridge and a slightly wider base, appearing proportionate to the face.",
+    "mouth": "Completely covered by a thick, dark mustache. The overall shape of the mouth suggests full lips beneath.",
+    "mustache": "Thick, dark, and well-groomed, covering the entire philtrum and upper lip.",
+    "chin_jawline": "Rounded chin with visible submental fullness (slight double chin). There is a light stubble visible on the chin and along the jawline.",
+    "forehead": "Broad forehead with a few visible horizontal lines, particularly when viewed up close."
+  },
+  "hair_type_color": {
+    "color": "Dark brown to black, with no visible greying in the main hair. Hints of grey are discernible in the stubble/facial hair.",
+    "type": "Thick, somewhat coarse, and appears straight.",
+    "style": "Receding hairline, especially at the temples. The hair is styled to be swept back and slightly upwards at the front, with some loose, wispy hairs visible near the crown and forehead."
+  }
+}
+
+Rajesh in paris streets in france, close up shot
+Received Negative Prompt: 
+Received Seed: 42
+Received Aspect Ratio: 16:9
+Step 1: Initializing ImageGenerationModel...
+Step 2: Model Initialized. Preparing to generate images...
+Generation Parameters: {'prompt': '\n{\n  "name": "Rajesh",\n  "gender": "Male",\n  "age": "Late 50s to early 60s",\n  "ethnicity": "South Asian",\n  "country_of_origin": "Indian",\n  "skin_color": "Medium tan with warm undertones.",\n  "facial_characteristics": {\n    "overall_shape": "Oval to round, with moderate fullness in the cheeks.",\n    "eyes": "Dark brown, almond-shaped, with a direct and steady gaze. Slight puffiness/bags under the eyes are noticeable, along with very subtle fine lines at the outer corners. The whites of the eyes are clear.",\n    "eyebrows": "Dark, medium thickness, well-defined, and relatively straight, with a slight furrow between them.",\n    "nose": "Medium-sized with a straight bridge and a slightly wider base, appearing proportionate to the face.",\n    "mouth": "Completely covered by a thick, dark mustache. The overall shape of the mouth suggests full lips beneath.",\n    "mustache": "Thick, dark, and well-groomed, covering the entire philtrum and upper lip.",\n    "chin_jawline": "Rounded chin with visible submental fullness (slight double chin). There is a light stubble visible on the chin and along the jawline.",\n    "forehead": "Broad forehead with a few visible horizontal lines, particularly when viewed up close."\n  },\n  "hair_type_color": {\n    "color": "Dark brown to black, with no visible greying in the main hair. Hints of grey are discernible in the stubble/facial hair.",\n    "type": "Thick, somewhat coarse, and appears straight.",\n    "style": "Receding hairline, especially at the temples. The hair is styled to be swept back and slightly upwards at the front, with some loose, wispy hairs visible near the crown and forehead."\n  }\n}\n\nRajesh in paris streets in france, close up shot', 'number_of_images': 1, 'aspect_ratio': '16:9', 'negative_prompt': '', 'person_generation': 'allow_all', 'safety_filter_level': 'block_few', 'add_watermark': False, 'seed': 42}
+Step 3: Images generated. Response received.
+Step 4: Image bytes extracted. Saving locally...
+Step 5: Image saved to static/uploads/img_op_1754295182177.png. Updating history.
+Step 6: History updated. Encoding and returning image data.
+--- Generating Editor Image (Operation ID: img_op_1754295223877) ---
+Received Prompt: 
+{
+  "name": "Rajesh",
+  "gender": "Male",
+  "age": "Late 50s to early 60s",
+  "ethnicity": "South Asian",
+  "country_of_origin": "Indian",
+  "skin_color": "Medium tan with warm undertones.",
+  "facial_characteristics": {
+    "overall_shape": "Oval to round, with moderate fullness in the cheeks.",
+    "eyes": "Dark brown, almond-shaped, with a direct and steady gaze. Slight puffiness/bags under the eyes are noticeable, along with very subtle fine lines at the outer corners. The whites of the eyes are clear.",
+    "eyebrows": "Dark, medium thickness, well-defined, and relatively straight, with a slight furrow between them.",
+    "nose": "Medium-sized with a straight bridge and a slightly wider base, appearing proportionate to the face.",
+    "mouth": "Completely covered by a thick, dark mustache. The overall shape of the mouth suggests full lips beneath.",
+    "mustache": "Thick, dark, and well-groomed, covering the entire philtrum and upper lip.",
+    "chin_jawline": "Rounded chin with visible submental fullness (slight double chin). There is a light stubble visible on the chin and along the jawline.",
+    "forehead": "Broad forehead with a few visible horizontal lines, particularly when viewed up close."
+  },
+  "hair_type_color": {
+    "color": "Dark brown to black, with no visible greying in the main hair. Hints of grey are discernible in the stubble/facial hair.",
+    "type": "Thick, somewhat coarse, and appears straight.",
+    "style": "Receding hairline, especially at the temples. The hair is styled to be swept back and slightly upwards at the front, with some loose, wispy hairs visible near the crown and forehead."
+  }
+}
+
+Rajesh in goa in a nightclub
+Received Negative Prompt: 
+Received Seed: 42
+Received Aspect Ratio: 16:9
+Step 1: Initializing ImageGenerationModel...
+Step 2: Model Initialized. Preparing to generate images...
+Generation Parameters: {'prompt': '\n{\n  "name": "Rajesh",\n  "gender": "Male",\n  "age": "Late 50s to early 60s",\n  "ethnicity": "South Asian",\n  "country_of_origin": "Indian",\n  "skin_color": "Medium tan with warm undertones.",\n  "facial_characteristics": {\n    "overall_shape": "Oval to round, with moderate fullness in the cheeks.",\n    "eyes": "Dark brown, almond-shaped, with a direct and steady gaze. Slight puffiness/bags under the eyes are noticeable, along with very subtle fine lines at the outer corners. The whites of the eyes are clear.",\n    "eyebrows": "Dark, medium thickness, well-defined, and relatively straight, with a slight furrow between them.",\n    "nose": "Medium-sized with a straight bridge and a slightly wider base, appearing proportionate to the face.",\n    "mouth": "Completely covered by a thick, dark mustache. The overall shape of the mouth suggests full lips beneath.",\n    "mustache": "Thick, dark, and well-groomed, covering the entire philtrum and upper lip.",\n    "chin_jawline": "Rounded chin with visible submental fullness (slight double chin). There is a light stubble visible on the chin and along the jawline.",\n    "forehead": "Broad forehead with a few visible horizontal lines, particularly when viewed up close."\n  },\n  "hair_type_color": {\n    "color": "Dark brown to black, with no visible greying in the main hair. Hints of grey are discernible in the stubble/facial hair.",\n    "type": "Thick, somewhat coarse, and appears straight.",\n    "style": "Receding hairline, especially at the temples. The hair is styled to be swept back and slightly upwards at the front, with some loose, wispy hairs visible near the crown and forehead."\n  }\n}\n\nRajesh in goa in a nightclub', 'number_of_images': 1, 'aspect_ratio': '16:9', 'negative_prompt': '', 'person_generation': 'allow_all', 'safety_filter_level': 'block_few', 'add_watermark': False, 'seed': 42}
+Step 3: Images generated. Response received.
+Step 4: Image bytes extracted. Saving locally...
+Step 5: Image saved to static/uploads/img_op_1754295223877.png. Updating history.
+Step 6: History updated. Encoding and returning image data.
+--- Generating Editor Image (Operation ID: img_op_1754295291854) ---
+Received Prompt: 
+{
+  "name": "Rajesh",
+  "gender": "Male",
+  "age": "Late 50s to early 60s",
+  "ethnicity": "South Asian",
+  "country_of_origin": "Indian",
+  "skin_color": "Medium tan with warm undertones.",
+  "facial_characteristics": {
+    "overall_shape": "Oval to round, with moderate fullness in the cheeks.",
+    "eyes": "Dark brown, almond-shaped, with a direct and steady gaze. Slight puffiness/bags under the eyes are noticeable, along with very subtle fine lines at the outer corners. The whites of the eyes are clear.",
+    "eyebrows": "Dark, medium thickness, well-defined, and relatively straight, with a slight furrow between them.",
+    "nose": "Medium-sized with a straight bridge and a slightly wider base, appearing proportionate to the face.",
+    "mouth": "Completely covered by a thick, dark mustache. The overall shape of the mouth suggests full lips beneath.",
+    "mustache": "Thick, dark, and well-groomed, covering the entire philtrum and upper lip.",
+    "chin_jawline": "Rounded chin with visible submental fullness (slight double chin). There is a light stubble visible on the chin and along the jawline.",
+    "forehead": "Broad forehead with a few visible horizontal lines, particularly when viewed up close."
+  },
+  "hair_type_color": {
+    "color": "Dark brown to black, with no visible greying in the main hair. Hints of grey are discernible in the stubble/facial hair.",
+    "type": "Thick, somewhat coarse, and appears straight.",
+    "style": "Receding hairline, especially at the temples. The hair is styled to be swept back and slightly upwards at the front, with some loose, wispy hairs visible near the crown and forehead."
+  }
+}
+
+Rajesh in goa in a nightclub full body shot
+Received Negative Prompt: 
+Received Seed: 42
+Received Aspect Ratio: 16:9
+Step 1: Initializing ImageGenerationModel...
+Step 2: Model Initialized. Preparing to generate images...
+Generation Parameters: {'prompt': '\n{\n  "name": "Rajesh",\n  "gender": "Male",\n  "age": "Late 50s to early 60s",\n  "ethnicity": "South Asian",\n  "country_of_origin": "Indian",\n  "skin_color": "Medium tan with warm undertones.",\n  "facial_characteristics": {\n    "overall_shape": "Oval to round, with moderate fullness in the cheeks.",\n    "eyes": "Dark brown, almond-shaped, with a direct and steady gaze. Slight puffiness/bags under the eyes are noticeable, along with very subtle fine lines at the outer corners. The whites of the eyes are clear.",\n    "eyebrows": "Dark, medium thickness, well-defined, and relatively straight, with a slight furrow between them.",\n    "nose": "Medium-sized with a straight bridge and a slightly wider base, appearing proportionate to the face.",\n    "mouth": "Completely covered by a thick, dark mustache. The overall shape of the mouth suggests full lips beneath.",\n    "mustache": "Thick, dark, and well-groomed, covering the entire philtrum and upper lip.",\n    "chin_jawline": "Rounded chin with visible submental fullness (slight double chin). There is a light stubble visible on the chin and along the jawline.",\n    "forehead": "Broad forehead with a few visible horizontal lines, particularly when viewed up close."\n  },\n  "hair_type_color": {\n    "color": "Dark brown to black, with no visible greying in the main hair. Hints of grey are discernible in the stubble/facial hair.",\n    "type": "Thick, somewhat coarse, and appears straight.",\n    "style": "Receding hairline, especially at the temples. The hair is styled to be swept back and slightly upwards at the front, with some loose, wispy hairs visible near the crown and forehead."\n  }\n}\n\nRajesh in goa in a nightclub full body shot', 'number_of_images': 1, 'aspect_ratio': '16:9', 'negative_prompt': '', 'person_generation': 'allow_all', 'safety_filter_level': 'block_few', 'add_watermark': False, 'seed': 42}
+Step 3: Images generated. Response received.
+Step 4: Image bytes extracted. Saving locally...
+Step 5: Image saved to static/uploads/img_op_1754295291854.png. Updating history.
+Step 6: History updated. Encoding and returning image data.
+--- Generating Editor Image (Operation ID: img_op_1754295314423) ---
+Received Prompt: 
+{
+  "name": "Rajesh",
+  "gender": "Male",
+  "age": "Late 50s to early 60s",
+  "ethnicity": "South Asian",
+  "country_of_origin": "Indian",
+  "skin_color": "Medium tan with warm undertones.",
+  "facial_characteristics": {
+    "overall_shape": "Oval to round, with moderate fullness in the cheeks.",
+    "eyes": "Dark brown, almond-shaped, with a direct and steady gaze. Slight puffiness/bags under the eyes are noticeable, along with very subtle fine lines at the outer corners. The whites of the eyes are clear.",
+    "eyebrows": "Dark, medium thickness, well-defined, and relatively straight, with a slight furrow between them.",
+    "nose": "Medium-sized with a straight bridge and a slightly wider base, appearing proportionate to the face.",
+    "mouth": "Completely covered by a thick, dark mustache. The overall shape of the mouth suggests full lips beneath.",
+    "mustache": "Thick, dark, and well-groomed, covering the entire philtrum and upper lip.",
+    "chin_jawline": "Rounded chin with visible submental fullness (slight double chin). There is a light stubble visible on the chin and along the jawline.",
+    "forehead": "Broad forehead with a few visible horizontal lines, particularly when viewed up close."
+  },
+  "hair_type_color": {
+    "color": "Dark brown to black, with no visible greying in the main hair. Hints of grey are discernible in the stubble/facial hair.",
+    "type": "Thick, somewhat coarse, and appears straight.",
+    "style": "Receding hairline, especially at the temples. The hair is styled to be swept back and slightly upwards at the front, with some loose, wispy hairs visible near the crown and forehead."
+  }
+}
+
+Rajesh in goa in a nightclub dancing full body shot
+Received Negative Prompt: 
+Received Seed: 42
+Received Aspect Ratio: 16:9
+Step 1: Initializing ImageGenerationModel...
+Step 2: Model Initialized. Preparing to generate images...
+Generation Parameters: {'prompt': '\n{\n  "name": "Rajesh",\n  "gender": "Male",\n  "age": "Late 50s to early 60s",\n  "ethnicity": "South Asian",\n  "country_of_origin": "Indian",\n  "skin_color": "Medium tan with warm undertones.",\n  "facial_characteristics": {\n    "overall_shape": "Oval to round, with moderate fullness in the cheeks.",\n    "eyes": "Dark brown, almond-shaped, with a direct and steady gaze. Slight puffiness/bags under the eyes are noticeable, along with very subtle fine lines at the outer corners. The whites of the eyes are clear.",\n    "eyebrows": "Dark, medium thickness, well-defined, and relatively straight, with a slight furrow between them.",\n    "nose": "Medium-sized with a straight bridge and a slightly wider base, appearing proportionate to the face.",\n    "mouth": "Completely covered by a thick, dark mustache. The overall shape of the mouth suggests full lips beneath.",\n    "mustache": "Thick, dark, and well-groomed, covering the entire philtrum and upper lip.",\n    "chin_jawline": "Rounded chin with visible submental fullness (slight double chin). There is a light stubble visible on the chin and along the jawline.",\n    "forehead": "Broad forehead with a few visible horizontal lines, particularly when viewed up close."\n  },\n  "hair_type_color": {\n    "color": "Dark brown to black, with no visible greying in the main hair. Hints of grey are discernible in the stubble/facial hair.",\n    "type": "Thick, somewhat coarse, and appears straight.",\n    "style": "Receding hairline, especially at the temples. The hair is styled to be swept back and slightly upwards at the front, with some loose, wispy hairs visible near the crown and forehead."\n  }\n}\n\nRajesh in goa in a nightclub dancing full body shot', 'number_of_images': 1, 'aspect_ratio': '16:9', 'negative_prompt': '', 'person_generation': 'allow_all', 'safety_filter_level': 'block_few', 'add_watermark': False, 'seed': 42}
+Step 3: Images generated. Response received.
+Step 4: Image bytes extracted. Saving locally...
+Step 5: Image saved to static/uploads/img_op_1754295314423.png. Updating history.
+Step 6: History updated. Encoding and returning image data.
+--- [DEBUG] Starting VEO Prompt Generation ---
+[DEBUG] Generating VEO prompt with model: gemini-2.5-flash
+[DEBUG] Sending request to Vertex AI with content: [Part(video_metadata=None, thought=None, code_execution_result=None, executable_code=None, file_data=FileData(file_uri='gs://gk-test-veo/prompt-images/1754295571657.png', mime_type='image/jpeg'), function_call=None, function_response=None, inline_data=None, text=None), 'You are an expert is facial description writing. Your information is used by a Painter to eaactly recreate the potrait of the person. \nPlease provide the following description : \n1. Facial characteristics and features in detail\n2. Hair type and Color\n3. Ethnicity \n4. Country of Origin \n5. Skin color \n6. Age of the person.\n7. Gender of the person.  \nGive a name to this character. Be to the point\n\n\nUser Prompt: Describe as a paragraph\n\nGenerate the final prompt in a valid JSON format.']
+[DEBUG] Received response from Vertex AI.
+--- Generating Editor Image (Operation ID: img_op_1754295705996) ---
+Received Prompt: Meet Rajesh, a male in his late fifties to early sixties, likely of South Asian origin, from India. He has a medium to olive skin tone. His face is oval to slightly rounded, characterized by dark, medium-sized eyes that appear somewhat deep-set, accompanied by noticeable under-eye bags and dark circles. His eyebrows are dark, thick, and well-defined. A prominent, thick, dark mustache covers his upper lip, complementing his medium-thickness lips and a relatively straight mouth. His nose is medium-sized with a straight bridge, broadening slightly towards the base. He has a rounded chin and a slight fullness under the jawline. His hair is dark, appearing black or very dark brown, with some signs of thinning or graying at the temples and crown, styled with some natural volume on top.
+
+Rajesh in goa in a nightclub dancing full body shot
+Received Negative Prompt: 
+Received Seed: 42
+Received Aspect Ratio: 16:9
+Step 1: Initializing ImageGenerationModel...
+--- Generating Editor Image (Operation ID: img_op_1754295706720) ---
+Received Prompt: Meet Rajesh, a male in his late fifties to early sixties, likely of South Asian origin, from India. He has a medium to olive skin tone. His face is oval to slightly rounded, characterized by dark, medium-sized eyes that appear somewhat deep-set, accompanied by noticeable under-eye bags and dark circles. His eyebrows are dark, thick, and well-defined. A prominent, thick, dark mustache covers his upper lip, complementing his medium-thickness lips and a relatively straight mouth. His nose is medium-sized with a straight bridge, broadening slightly towards the base. He has a rounded chin and a slight fullness under the jawline. His hair is dark, appearing black or very dark brown, with some signs of thinning or graying at the temples and crown, styled with some natural volume on top.
+
+Rajesh in goa in a nightclub dancing full body shot
+Received Negative Prompt: 
+Received Seed: 42
+Received Aspect Ratio: 16:9
+Step 1: Initializing ImageGenerationModel...
+Step 2: Model Initialized. Preparing to generate images...
+Generation Parameters: {'prompt': 'Meet Rajesh, a male in his late fifties to early sixties, likely of South Asian origin, from India. He has a medium to olive skin tone. His face is oval to slightly rounded, characterized by dark, medium-sized eyes that appear somewhat deep-set, accompanied by noticeable under-eye bags and dark circles. His eyebrows are dark, thick, and well-defined. A prominent, thick, dark mustache covers his upper lip, complementing his medium-thickness lips and a relatively straight mouth. His nose is medium-sized with a straight bridge, broadening slightly towards the base. He has a rounded chin and a slight fullness under the jawline. His hair is dark, appearing black or very dark brown, with some signs of thinning or graying at the temples and crown, styled with some natural volume on top.\n\nRajesh in goa in a nightclub dancing full body shot', 'number_of_images': 1, 'aspect_ratio': '16:9', 'negative_prompt': '', 'person_generation': 'allow_all', 'safety_filter_level': 'block_few', 'add_watermark': False, 'seed': 42}
+Step 2: Model Initialized. Preparing to generate images...
+Generation Parameters: {'prompt': 'Meet Rajesh, a male in his late fifties to early sixties, likely of South Asian origin, from India. He has a medium to olive skin tone. His face is oval to slightly rounded, characterized by dark, medium-sized eyes that appear somewhat deep-set, accompanied by noticeable under-eye bags and dark circles. His eyebrows are dark, thick, and well-defined. A prominent, thick, dark mustache covers his upper lip, complementing his medium-thickness lips and a relatively straight mouth. His nose is medium-sized with a straight bridge, broadening slightly towards the base. He has a rounded chin and a slight fullness under the jawline. His hair is dark, appearing black or very dark brown, with some signs of thinning or graying at the temples and crown, styled with some natural volume on top.\n\nRajesh in goa in a nightclub dancing full body shot', 'number_of_images': 1, 'aspect_ratio': '16:9', 'negative_prompt': '', 'person_generation': 'allow_all', 'safety_filter_level': 'block_few', 'add_watermark': False, 'seed': 42}
+Step 3: Images generated. Response received.
+Step 4: Image bytes extracted. Saving locally...
+Step 5: Image saved to static/uploads/img_op_1754295705996.png. Updating history.
+Step 6: History updated. Encoding and returning image data.
+Step 3: Images generated. Response received.
+Step 4: Image bytes extracted. Saving locally...
+Step 5: Image saved to static/uploads/img_op_1754295706720.png. Updating history.
+Step 6: History updated. Encoding and returning image data.
+--- Generating Editor Image (Operation ID: img_op_1754295725905) ---
+Received Prompt: Meet Rajesh, a male in his late fifties to early sixties, likely of South Asian origin, from India. He has a medium to olive skin tone. His face is oval to slightly rounded, characterized by dark, medium-sized eyes that appear somewhat deep-set, accompanied by noticeable under-eye bags and dark circles. His eyebrows are dark, thick, and well-defined. A prominent, thick, dark mustache covers his upper lip, complementing his medium-thickness lips and a relatively straight mouth. His nose is medium-sized with a straight bridge, broadening slightly towards the base. He has a rounded chin and a slight fullness under the jawline. His hair is dark, appearing black or very dark brown, with some signs of thinning or graying at the temples and crown, styled with some natural volume on top.
+
+Rajesh in goa in a nightclub dancing full body shot
+Received Negative Prompt: 
+Received Seed: 42
+Received Aspect Ratio: 16:9
+Step 1: Initializing ImageGenerationModel...
+Step 2: Model Initialized. Preparing to generate images...
+Generation Parameters: {'prompt': 'Meet Rajesh, a male in his late fifties to early sixties, likely of South Asian origin, from India. He has a medium to olive skin tone. His face is oval to slightly rounded, characterized by dark, medium-sized eyes that appear somewhat deep-set, accompanied by noticeable under-eye bags and dark circles. His eyebrows are dark, thick, and well-defined. A prominent, thick, dark mustache covers his upper lip, complementing his medium-thickness lips and a relatively straight mouth. His nose is medium-sized with a straight bridge, broadening slightly towards the base. He has a rounded chin and a slight fullness under the jawline. His hair is dark, appearing black or very dark brown, with some signs of thinning or graying at the temples and crown, styled with some natural volume on top.\n\nRajesh in goa in a nightclub dancing full body shot', 'number_of_images': 1, 'aspect_ratio': '16:9', 'negative_prompt': '', 'person_generation': 'allow_all', 'safety_filter_level': 'block_few', 'add_watermark': False, 'seed': 42}
+Step 3: Images generated. Response received.
+Step 4: Image bytes extracted. Saving locally...
+Step 5: Image saved to static/uploads/img_op_1754295725905.png. Updating history.
+Step 6: History updated. Encoding and returning image data.
+--- Generating Editor Image (Operation ID: img_op_1754295758474) ---
+Received Prompt: Meet Rajesh, a male in his late fifties to early sixties, likely of South Asian origin, from India. He has a medium to olive skin tone. His face is oval to slightly rounded, characterized by dark, medium-sized eyes that appear somewhat deep-set, accompanied by noticeable under-eye bags and dark circles. His eyebrows are dark, thick, and well-defined. A prominent, thick, dark mustache covers his upper lip, complementing his medium-thickness lips and a relatively straight mouth. His nose is medium-sized with a straight bridge, broadening slightly towards the base. He has a rounded chin and a slight fullness under the jawline. His hair is dark, appearing black or very dark brown, with some signs of thinning or graying at the temples and crown, styled with some natural volume on top.
+
+Rajesh in delhi looking at the India Gate with full body shot
+Received Negative Prompt: 
+Received Seed: 42
+Received Aspect Ratio: 16:9
+Step 1: Initializing ImageGenerationModel...
+Step 2: Model Initialized. Preparing to generate images...
+Generation Parameters: {'prompt': 'Meet Rajesh, a male in his late fifties to early sixties, likely of South Asian origin, from India. He has a medium to olive skin tone. His face is oval to slightly rounded, characterized by dark, medium-sized eyes that appear somewhat deep-set, accompanied by noticeable under-eye bags and dark circles. His eyebrows are dark, thick, and well-defined. A prominent, thick, dark mustache covers his upper lip, complementing his medium-thickness lips and a relatively straight mouth. His nose is medium-sized with a straight bridge, broadening slightly towards the base. He has a rounded chin and a slight fullness under the jawline. His hair is dark, appearing black or very dark brown, with some signs of thinning or graying at the temples and crown, styled with some natural volume on top.\n\nRajesh in delhi looking at the India Gate with full body shot', 'number_of_images': 1, 'aspect_ratio': '16:9', 'negative_prompt': '', 'person_generation': 'allow_all', 'safety_filter_level': 'block_few', 'add_watermark': False, 'seed': 42}
+Step 3: Images generated. Response received.
+Step 4: Image bytes extracted. Saving locally...
+Step 5: Image saved to static/uploads/img_op_1754295758474.png. Updating history.
+Step 6: History updated. Encoding and returning image data.
+--- Generating Editor Image (Operation ID: img_op_1754295786351) ---
+Received Prompt: Meet Rajesh, a male in his late fifties to early sixties, likely of South Asian origin, from India. He has a medium to olive skin tone. His face is oval to slightly rounded, characterized by dark, medium-sized eyes that appear somewhat deep-set, accompanied by noticeable under-eye bags and dark circles. His eyebrows are dark, thick, and well-defined. A prominent, thick, dark mustache covers his upper lip, complementing his medium-thickness lips and a relatively straight mouth. His nose is medium-sized with a straight bridge, broadening slightly towards the base. He has a rounded chin and a slight fullness under the jawline. His hair is dark, appearing black or very dark brown, with some signs of thinning or graying at the temples and crown, styled with some natural volume on top.
+
+Rajesh in paris as a tourist 
+Received Negative Prompt: 
+Received Seed: 42
+Received Aspect Ratio: 16:9
+Step 1: Initializing ImageGenerationModel...
+Step 2: Model Initialized. Preparing to generate images...
+Generation Parameters: {'prompt': 'Meet Rajesh, a male in his late fifties to early sixties, likely of South Asian origin, from India. He has a medium to olive skin tone. His face is oval to slightly rounded, characterized by dark, medium-sized eyes that appear somewhat deep-set, accompanied by noticeable under-eye bags and dark circles. His eyebrows are dark, thick, and well-defined. A prominent, thick, dark mustache covers his upper lip, complementing his medium-thickness lips and a relatively straight mouth. His nose is medium-sized with a straight bridge, broadening slightly towards the base. He has a rounded chin and a slight fullness under the jawline. His hair is dark, appearing black or very dark brown, with some signs of thinning or graying at the temples and crown, styled with some natural volume on top.\n\nRajesh in paris as a tourist ', 'number_of_images': 1, 'aspect_ratio': '16:9', 'negative_prompt': '', 'person_generation': 'allow_all', 'safety_filter_level': 'block_few', 'add_watermark': False, 'seed': 42}
+Step 3: Images generated. Response received.
+Step 4: Image bytes extracted. Saving locally...
+Step 5: Image saved to static/uploads/img_op_1754295786351.png. Updating history.
+Step 6: History updated. Encoding and returning image data.
+--- Generating Editor Image (Operation ID: img_op_1754296075961) ---
+Received Prompt: Emily, a striking figure at 31, presents a captivating blend of her Japanese and European heritage. Standing tall at 6 feet, her slim and slender physique carries the poise of a model. Her most arresting features are her bulgy, expressive brown eyes, which seem to hold a depth of untold stories. Framing her face is a cascade of curly brown hair, creating a soft contrast to her prominent forehead. Around her neck, she wears a delicate golden chain, a subtle touch of elegance that draws attention to her graceful neckline. Enhancing her refined appearance are a pair of black pearl earrings, small yet significant accents that add a hint of mystery to her already intriguing presence. Her demeanor suggests a quiet confidence, a blend of approachability and self-assuredness that makes her both captivating and enigmatic.
+
+
+
+
+Rajesh in paris as a tourist wearing a saree
+Received Negative Prompt: 
+Received Seed: 42
+Received Aspect Ratio: 16:9
+Step 1: Initializing ImageGenerationModel...
+Step 2: Model Initialized. Preparing to generate images...
+Generation Parameters: {'prompt': 'Emily, a striking figure at 31, presents a captivating blend of her Japanese and European heritage. Standing tall at 6 feet, her slim and slender physique carries the poise of a model. Her most arresting features are her bulgy, expressive brown eyes, which seem to hold a depth of untold stories. Framing her face is a cascade of curly brown hair, creating a soft contrast to her prominent forehead. Around her neck, she wears a delicate golden chain, a subtle touch of elegance that draws attention to her graceful neckline. Enhancing her refined appearance are a pair of black pearl earrings, small yet significant accents that add a hint of mystery to her already intriguing presence. Her demeanor suggests a quiet confidence, a blend of approachability and self-assuredness that makes her both captivating and enigmatic.\n\n\n\n\nRajesh in paris as a tourist wearing a saree', 'number_of_images': 1, 'aspect_ratio': '16:9', 'negative_prompt': '', 'person_generation': 'allow_all', 'safety_filter_level': 'block_few', 'add_watermark': False, 'seed': 42}
+Step 3: Images generated. Response received.
+Step 4: Image bytes extracted. Saving locally...
+Step 5: Image saved to static/uploads/img_op_1754296075961.png. Updating history.
+Step 6: History updated. Encoding and returning image data.
+--- Generating Editor Image (Operation ID: img_op_1754296156731) ---
+Received Prompt: Eva, a 24-year-old woman of European descent, carries herself with a quiet confidence that belies her age. Her most striking feature is her pair of sharp, black eyes, which possess an intensity that draws people in. Above them sit thick, neatly groomed eyebrows that accentuate her gaze, lending her an air of thoughtful determination. Her broad forehead suggests intelligence and a contemplative nature. Eva's lips are full and somewhat bulgy, giving her a naturally sensual appearance. Her body is slender, hinting at athleticism without being overly thin. Around her neck, she wears a solitaire diamond pendant. The simplicity of the pendant speaks to a refined taste and perhaps a preference for understated elegance.
+
+
+
+
+
+
+Ewa, in paris as a tourist wearing a saree
+Received Negative Prompt: 
+Received Seed: 42
+Received Aspect Ratio: 16:9
+Step 1: Initializing ImageGenerationModel...
+Step 2: Model Initialized. Preparing to generate images...
+Generation Parameters: {'prompt': "Eva, a 24-year-old woman of European descent, carries herself with a quiet confidence that belies her age. Her most striking feature is her pair of sharp, black eyes, which possess an intensity that draws people in. Above them sit thick, neatly groomed eyebrows that accentuate her gaze, lending her an air of thoughtful determination. Her broad forehead suggests intelligence and a contemplative nature. Eva's lips are full and somewhat bulgy, giving her a naturally sensual appearance. Her body is slender, hinting at athleticism without being overly thin. Around her neck, she wears a solitaire diamond pendant. The simplicity of the pendant speaks to a refined taste and perhaps a preference for understated elegance.\n\n\n\n\n\n\nEwa, in paris as a tourist wearing a saree", 'number_of_images': 1, 'aspect_ratio': '16:9', 'negative_prompt': '', 'person_generation': 'allow_all', 'safety_filter_level': 'block_few', 'add_watermark': False, 'seed': 42}
+Step 3: Images generated. Response received.
+Step 4: Image bytes extracted. Saving locally...
+Step 5: Image saved to static/uploads/img_op_1754296156731.png. Updating history.
+Step 6: History updated. Encoding and returning image data.
+--- Generating Editor Image (Operation ID: img_op_1754296251376) ---
+Received Prompt: Eva, a 24-year-old woman of European descent, carries herself with a quiet confidence that belies her age. Her most striking feature is her pair of sharp, black eyes, which possess an intensity that draws people in. Above them sit thick, neatly groomed eyebrows that accentuate her gaze, lending her an air of thoughtful determination. Her broad forehead suggests intelligence and a contemplative nature. Eva's lips are full and somewhat bulgy, giving her a naturally sensual appearance. Her body is slender, hinting at athleticism without being overly thin. Around her neck, she wears a solitaire diamond pendant. The simplicity of the pendant speaks to a refined taste and perhaps a preference for understated elegance.
+
+
+
+
+
+
+Eva, in delhi doing shopping in a supermarket
+Received Negative Prompt: 
+Received Seed: 42
+Received Aspect Ratio: 16:9
+Step 1: Initializing ImageGenerationModel...
+Step 2: Model Initialized. Preparing to generate images...
+Generation Parameters: {'prompt': "Eva, a 24-year-old woman of European descent, carries herself with a quiet confidence that belies her age. Her most striking feature is her pair of sharp, black eyes, which possess an intensity that draws people in. Above them sit thick, neatly groomed eyebrows that accentuate her gaze, lending her an air of thoughtful determination. Her broad forehead suggests intelligence and a contemplative nature. Eva's lips are full and somewhat bulgy, giving her a naturally sensual appearance. Her body is slender, hinting at athleticism without being overly thin. Around her neck, she wears a solitaire diamond pendant. The simplicity of the pendant speaks to a refined taste and perhaps a preference for understated elegance.\n\n\n\n\n\n\nEva, in delhi doing shopping in a supermarket", 'number_of_images': 1, 'aspect_ratio': '16:9', 'negative_prompt': '', 'person_generation': 'allow_all', 'safety_filter_level': 'block_few', 'add_watermark': False, 'seed': 42}
+Step 3: Images generated. Response received.
+Step 4: Image bytes extracted. Saving locally...
+Step 5: Image saved to static/uploads/img_op_1754296251376.png. Updating history.
+Step 6: History updated. Encoding and returning image data.
+--- Generating Editor Image (Operation ID: img_op_1754296293883) ---
+Received Prompt: Eva, a 24-year-old woman of European descent, carries herself with a quiet confidence that belies her age. Her most striking feature is her pair of sharp, black eyes, which possess an intensity that draws people in. Above them sit thick, neatly groomed eyebrows that accentuate her gaze, lending her an air of thoughtful determination. Her broad forehead suggests intelligence and a contemplative nature. Eva's lips are full and somewhat bulgy, giving her a naturally sensual appearance. Her body is slender, hinting at athleticism without being overly thin. Around her neck, she wears a solitaire diamond pendant. The simplicity of the pendant speaks to a refined taste and perhaps a preference for understated elegance.
+
+
+
+
+
+
+Eva, in paris as a tourist boarding a bus
+Received Negative Prompt: 
+Received Seed: 42
+Received Aspect Ratio: 16:9
+Step 1: Initializing ImageGenerationModel...
+Step 2: Model Initialized. Preparing to generate images...
+Generation Parameters: {'prompt': "Eva, a 24-year-old woman of European descent, carries herself with a quiet confidence that belies her age. Her most striking feature is her pair of sharp, black eyes, which possess an intensity that draws people in. Above them sit thick, neatly groomed eyebrows that accentuate her gaze, lending her an air of thoughtful determination. Her broad forehead suggests intelligence and a contemplative nature. Eva's lips are full and somewhat bulgy, giving her a naturally sensual appearance. Her body is slender, hinting at athleticism without being overly thin. Around her neck, she wears a solitaire diamond pendant. The simplicity of the pendant speaks to a refined taste and perhaps a preference for understated elegance.\n\n\n\n\n\n\nEva, in paris as a tourist boarding a bus", 'number_of_images': 1, 'aspect_ratio': '16:9', 'negative_prompt': '', 'person_generation': 'allow_all', 'safety_filter_level': 'block_few', 'add_watermark': False, 'seed': 42}
+Step 3: Images generated. Response received.
+Step 4: Image bytes extracted. Saving locally...
+Step 5: Image saved to static/uploads/img_op_1754296293883.png. Updating history.
+Step 6: History updated. Encoding and returning image data.
+--- [DEBUG] Starting VEO Prompt Generation ---
+[DEBUG] Generating VEO prompt with model: gemini-2.5-flash
+[DEBUG] Sending request to Vertex AI with content: [Part(video_metadata=None, thought=None, code_execution_result=None, executable_code=None, file_data=FileData(file_uri='gs://gk-test-veo/prompt-images/1754296517884.png', mime_type='image/png'), function_call=None, function_response=None, inline_data=None, text=None), 'You are an expert is facial description writing. Your information is used by a Painter to exactly recreate the portrait of the person. \nPlease provide the following description : \n1. Facial characteristics and features in detail\n2. Hair type, hair Color and hair style \n3. Ethnicity \n4. Country of Origin \n5. Skin color \n6. Age of the person.\n7. Gender of the person.  \n8. Accessories if wearing \nGive a name to this character. Be to the point\n\n\nUser Prompt: Describe as a paragraph\n\nGenerate the final prompt in a valid JSON format.']
+--- [DEBUG] Starting VEO Prompt Generation ---
+[DEBUG] Generating VEO prompt with model: gemini-2.5-flash
+[DEBUG] Received response from Vertex AI.
+[DEBUG] Sending request to Vertex AI with content: [Part(video_metadata=None, thought=None, code_execution_result=None, executable_code=None, file_data=FileData(file_uri='gs://gk-test-veo/prompt-images/1754296534353.png', mime_type='image/png'), function_call=None, function_response=None, inline_data=None, text=None), 'You are an expert is facial description writing. Your information is used by a Painter to exactly recreate the portrait of the person. \nPlease provide the following description : \n1. Facial characteristics and features in detail\n2. Hair type, hair Color and hair style \n3. Ethnicity \n4. Country of Origin \n5. Skin color \n6. Age of the person.\n7. Gender of the person.  \n8. Accessories if wearing \nGive a name to this character. Be to the point\n\n\nUser Prompt: Describe as a paragraph\n\nGenerate the final prompt in a valid JSON format.']
+[DEBUG] Received response from Vertex AI.
+--- Generating Editor Image (Operation ID: img_op_1754296578218) ---
+Received Prompt:  Alessandra, a female in her early to mid-20s with an oval-shaped face and a clear, light to medium olive skin tone. Her prominent facial features include large, dark brown, almond-shaped eyes beneath thick, naturally arched dark eyebrows. She has a straight nose and full, well-defined lips. Her hair is dark brown, thick, and styled in a sleek low ponytail with a neat middle part. Her features strongly suggest a Mediterranean or French ethnicity. While her specific Country of Origin cannot be definitively determined from the image, her appearance is consistent with this ethnic background. She is adorned with black sunglasses perched on her head, subtle stud earrings, and a delicate gold chain necklace featuring a small, round, possibly diamond-encrusted pendant.
+
+
+
+
+
+
+Eva, in paris as a tourist boarding a bus
+Received Negative Prompt: 
+Received Seed: 42
+Received Aspect Ratio: 16:9
+Step 1: Initializing ImageGenerationModel...
+Step 2: Model Initialized. Preparing to generate images...
+Generation Parameters: {'prompt': ' Alessandra, a female in her early to mid-20s with an oval-shaped face and a clear, light to medium olive skin tone. Her prominent facial features include large, dark brown, almond-shaped eyes beneath thick, naturally arched dark eyebrows. She has a straight nose and full, well-defined lips. Her hair is dark brown, thick, and styled in a sleek low ponytail with a neat middle part. Her features strongly suggest a Mediterranean or French ethnicity. While her specific Country of Origin cannot be definitively determined from the image, her appearance is consistent with this ethnic background. She is adorned with black sunglasses perched on her head, subtle stud earrings, and a delicate gold chain necklace featuring a small, round, possibly diamond-encrusted pendant.\n\n\n\n\n\n\nEva, in paris as a tourist boarding a bus', 'number_of_images': 1, 'aspect_ratio': '16:9', 'negative_prompt': '', 'person_generation': 'allow_all', 'safety_filter_level': 'block_few', 'add_watermark': False, 'seed': 42}
+Step 3: Images generated. Response received.
+Step 4: Image bytes extracted. Saving locally...
+Step 5: Image saved to static/uploads/img_op_1754296578218.png. Updating history.
+Step 6: History updated. Encoding and returning image data.
+--- Generating Editor Image (Operation ID: img_op_1754296611861) ---
+Received Prompt:  Alessandra, a female in her early to mid-20s with an oval-shaped face and a clear, light to medium olive skin tone. Her prominent facial features include large, dark brown, almond-shaped eyes beneath thick, naturally arched dark eyebrows. She has a straight nose and full, well-defined lips. Her hair is dark brown, thick, and styled in a sleek low ponytail with a neat middle part. Her features strongly suggest a Mediterranean or French ethnicity. While her specific Country of Origin cannot be definitively determined from the image, her appearance is consistent with this ethnic background. She is adorned with black sunglasses perched on her head, subtle stud earrings, and a delicate gold chain necklace featuring a small, round, possibly diamond-encrusted pendant.
+
+
+
+
+
+
+Eva, in new york in a shopping street
+Received Negative Prompt: 
+Received Seed: 42
+Received Aspect Ratio: 16:9
+Step 1: Initializing ImageGenerationModel...
+Step 2: Model Initialized. Preparing to generate images...
+Generation Parameters: {'prompt': ' Alessandra, a female in her early to mid-20s with an oval-shaped face and a clear, light to medium olive skin tone. Her prominent facial features include large, dark brown, almond-shaped eyes beneath thick, naturally arched dark eyebrows. She has a straight nose and full, well-defined lips. Her hair is dark brown, thick, and styled in a sleek low ponytail with a neat middle part. Her features strongly suggest a Mediterranean or French ethnicity. While her specific Country of Origin cannot be definitively determined from the image, her appearance is consistent with this ethnic background. She is adorned with black sunglasses perched on her head, subtle stud earrings, and a delicate gold chain necklace featuring a small, round, possibly diamond-encrusted pendant.\n\n\n\n\n\n\nEva, in new york in a shopping street', 'number_of_images': 1, 'aspect_ratio': '16:9', 'negative_prompt': '', 'person_generation': 'allow_all', 'safety_filter_level': 'block_few', 'add_watermark': False, 'seed': 42}
+Step 3: Images generated. Response received.
+Step 4: Image bytes extracted. Saving locally...
+Step 5: Image saved to static/uploads/img_op_1754296611861.png. Updating history.
+Step 6: History updated. Encoding and returning image data.
+--- Generating Editor Image (Operation ID: img_op_1754296656390) ---
+Received Prompt:  Alessandra, a female in her early to mid-20s with an oval-shaped face and a clear, light to medium olive skin tone. Her prominent facial features include large, dark brown, almond-shaped eyes beneath thick, naturally arched dark eyebrows. She has a straight nose and full, well-defined lips. Her hair is dark brown, thick, and styled in a sleek low ponytail with a neat middle part. Her features strongly suggest a Mediterranean or French ethnicity. While her specific Country of Origin cannot be definitively determined from the image, her appearance is consistent with this ethnic background. She is adorned with black sunglasses perched on her head, subtle stud earrings, and a delicate gold chain necklace featuring a small, round, possibly diamond-encrusted pendant.
+
+
+
+
+
+
+Eva, in on a french beach full body shot
+Received Negative Prompt: 
+Received Seed: 42
+Received Aspect Ratio: 16:9
+Step 1: Initializing ImageGenerationModel...
+Step 2: Model Initialized. Preparing to generate images...
+Generation Parameters: {'prompt': ' Alessandra, a female in her early to mid-20s with an oval-shaped face and a clear, light to medium olive skin tone. Her prominent facial features include large, dark brown, almond-shaped eyes beneath thick, naturally arched dark eyebrows. She has a straight nose and full, well-defined lips. Her hair is dark brown, thick, and styled in a sleek low ponytail with a neat middle part. Her features strongly suggest a Mediterranean or French ethnicity. While her specific Country of Origin cannot be definitively determined from the image, her appearance is consistent with this ethnic background. She is adorned with black sunglasses perched on her head, subtle stud earrings, and a delicate gold chain necklace featuring a small, round, possibly diamond-encrusted pendant.\n\n\n\n\n\n\nEva, in on a french beach full body shot', 'number_of_images': 1, 'aspect_ratio': '16:9', 'negative_prompt': '', 'person_generation': 'allow_all', 'safety_filter_level': 'block_few', 'add_watermark': False, 'seed': 42}
+Step 3: Images generated. Response received.
+Step 4: Image bytes extracted. Saving locally...
+Step 5: Image saved to static/uploads/img_op_1754296656390.png. Updating history.
+Step 6: History updated. Encoding and returning image data.
+--- Generating Editor Image (Operation ID: img_op_1754296681722) ---
+Received Prompt:  Alessandra, a female in her early to mid-20s with an oval-shaped face and a clear, light to medium olive skin tone. Her prominent facial features include large, dark brown, almond-shaped eyes beneath thick, naturally arched dark eyebrows. She has a straight nose and full, well-defined lips. Her hair is dark brown, thick, and styled in a sleek low ponytail with a neat middle part. Her features strongly suggest a Mediterranean or French ethnicity. While her specific Country of Origin cannot be definitively determined from the image, her appearance is consistent with this ethnic background. She is adorned with black sunglasses perched on her head, subtle stud earrings, and a delicate gold chain necklace featuring a small, round, possibly diamond-encrusted pendant.
+
+
+
+
+
+
+Eva, in on a french beach smiling gracefully
+Received Negative Prompt: 
+Received Seed: 42
+Received Aspect Ratio: 16:9
+Step 1: Initializing ImageGenerationModel...
+Step 2: Model Initialized. Preparing to generate images...
+Generation Parameters: {'prompt': ' Alessandra, a female in her early to mid-20s with an oval-shaped face and a clear, light to medium olive skin tone. Her prominent facial features include large, dark brown, almond-shaped eyes beneath thick, naturally arched dark eyebrows. She has a straight nose and full, well-defined lips. Her hair is dark brown, thick, and styled in a sleek low ponytail with a neat middle part. Her features strongly suggest a Mediterranean or French ethnicity. While her specific Country of Origin cannot be definitively determined from the image, her appearance is consistent with this ethnic background. She is adorned with black sunglasses perched on her head, subtle stud earrings, and a delicate gold chain necklace featuring a small, round, possibly diamond-encrusted pendant.\n\n\n\n\n\n\nEva, in on a french beach smiling gracefully', 'number_of_images': 1, 'aspect_ratio': '16:9', 'negative_prompt': '', 'person_generation': 'allow_all', 'safety_filter_level': 'block_few', 'add_watermark': False, 'seed': 42}
+Step 3: Images generated. Response received.
+Step 4: Image bytes extracted. Saving locally...
+Step 5: Image saved to static/uploads/img_op_1754296681722.png. Updating history.
+Step 6: History updated. Encoding and returning image data.
+--- [DEBUG] Starting VEO Prompt Generation ---
+[DEBUG] Generating VEO prompt with model: gemini-2.5-flash
+[DEBUG] Sending request to Vertex AI with content: [Part(video_metadata=None, thought=None, code_execution_result=None, executable_code=None, file_data=FileData(file_uri='gs://gk-test-veo/prompt-images/1754296916472.png', mime_type='image/png'), function_call=None, function_response=None, inline_data=None, text=None), 'You are an expert is facial description writing. Your information is used by a Painter to exactly recreate the portrait of the person. \nPlease provide the following description : \n1. Facial characteristics and features in detail\n2. Hair type, hair Color and hair style \n3. Ethnicity \n4. Country of Origin \n5. Skin color \n6. Age of the person.\n7. Gender of the person.  \n8. Accessories if wearing \n9. Any expression on the face \nGive a name to this character. Provide pointed description capturing as much details possible\n\n\nUser Prompt: Describe in a paragraph\n\nGenerate the final prompt in a valid JSON format.']
+[DEBUG] Received response from Vertex AI.
+--- [DEBUG] Starting VEO Prompt Generation ---
+[DEBUG] Generating VEO prompt with model: gemini-2.5-flash
+[DEBUG] Sending request to Vertex AI with content: ['You are an expert video prompt engineer for Google\'s Veo model. Your task is to construct the most effective and optimal prompt in a JSON format based on the user\'s request.\n\nHere are some examples of high-quality prompts:\n\nExample 1:\n{\n  "shot": {\n    "composition": "sushi flying mid-air in freeze-frame, ingredients slicing through slow-mo then slamming into a box layout",\n    "lens": "35mm with fast rack focus",\n    "frame_rate": "1500fps during slicing and drops, 60fps tracking",\n    "camera_movement": "whip pans, snap zoom on impact, bullet-time swirl around salmon cut"\n  },\n  "subject": {\n    "description": "exploding sushi assortment — salmon, maki, ebi, avocado, rice burst",\n    "wardrobe": "",\n    "props": "dripping soy, flying ginger, vapor mist, kinetic chopsticks"\n  },\n  "scene": {\n    "location": "black void with glowing grid, floating sushi elements",\n    "time_of_day": "stylized timeless",\n    "environment": "mist, air swirls, kinetic chop platform"\n  },\n  "visual_details": {\n    "action": "sashimi slices in air, rice explodes into shape, box slams shut in final impact burst, chopsticks cross like a seal",\n    "special_effects": "rice shockwave, soy splash trails, steam blast on drop",\n    "hair_clothing_motion": ""\n  },\n  "cinematography": {\n    "lighting": "dramatic side light, gloss shimmer pulses on fish",\n    "color_palette": "lava orange, sea green, high-gloss black, neon edges",\n    "tone": "premium, aggressive, ultra-fresh"\n  },\n  "audio": {\n    "music": "trap beat with cinematic bass hits and percussive rhythm",\n    "ambient": "air slice, sushi drop echo",\n    "sound_effects": "rice crackle, soy sizzle, blade whoosh",\n    "mix_level": "punchy mix, FX-synced with hard stereo hits"\n  },\n  "dialogue": {\n    "character": "",\n    "line": "",\n    "subtitles": false\n  }\n}\n\nExample 2:\n[\n{\n"scene": 1,\n"duration": "8 seconds",\n"aspect_ratio": "16:9",\n"characters": [\n{\n"name": "Benny",\n"description": "Cartoonish young man with oversized eyes, warm smile, tousled hair; dressed in cozy kitchen loungewear; expressive and animated"\n}\n],\n"setting": "A pristine, morning-lit kitchen with a marble countertop. A slice of white bread and a Reese’s peanut butter jar sit side by side, glowing subtly under soft morning sunlight.",\n"camera": {\n"angle": "overhead cinematic",\n"movement": "slow push-in toward the Reese jar",\n"focus": "shallow depth on the peanut butter lid and toast"\n},\n"lighting": "Warm, golden-hour morning light with reflective marble gleam",\n"music": "Light piano and plucked strings (continues throughout all scenes)",\n"tone": "Whimsical, gentle anticipation",\n"vfx": [\n"As Benny reaches for the jar, the lid spins off on its own, floating mid-air",\n"A glowing swirl of chocolate and peanut butter rises from the jar like magical smoke",\n"Tiny sparkles and floating Reese cups orbit the swirl briefly"\n],\n"transition_to_next": "The swirl envelops the toast and camera dives into the vortex"\n}\n]\n\nNow, generate a new prompt based on the user\'s request, following the structure of the examples. Do not add any details that are not present in the user\'s request. Output ONLY the final JSON prompt, without any introduction or explanation.\n\nUser Prompt: Person working on the computer and an AI agent, chat interface automating calendars, emails, replies to emails, writes code and logs a github pr\n\nGenerate the final prompt in a valid JSON format.']
+[DEBUG] Received response from Vertex AI.
+--- Generating Editor Image (Operation ID: img_op_1754363999727) ---
+Received Prompt: Slide 1: The Core Message
+The Age of SaaS is Over. The Era of the AI Agent is Here.
+We are at a pivotal moment in technology. For the last two decades, Software as a Service (SaaS) has dominated the enterprise, giving us powerful tools. But it has also led to a fragmented landscape of apps that require constant human intervention.
+
+The future isn't another tool. It's a new type of workforce.
+
+Our singular focus today is this: We are moving from a world of tools (SaaS) to a world of teammates (AI Agents).
+
+
+Received Negative Prompt: 
+Received Seed: 42
+Received Aspect Ratio: 16:9
+Step 1: Initializing ImageGenerationModel...
+Step 2: Model Initialized. Preparing to generate images...
+Generation Parameters: {'prompt': "Slide 1: The Core Message\nThe Age of SaaS is Over. The Era of the AI Agent is Here.\nWe are at a pivotal moment in technology. For the last two decades, Software as a Service (SaaS) has dominated the enterprise, giving us powerful tools. But it has also led to a fragmented landscape of apps that require constant human intervention.\n\nThe future isn't another tool. It's a new type of workforce.\n\nOur singular focus today is this: We are moving from a world of tools (SaaS) to a world of teammates (AI Agents).\n\n", 'number_of_images': 1, 'aspect_ratio': '16:9', 'negative_prompt': '', 'person_generation': 'allow_all', 'safety_filter_level': 'block_few', 'add_watermark': False, 'seed': 42}
+Step 3: Images generated. Response received.
+Step 4: Image bytes extracted. Saving locally...
+Step 5: Image saved to static/uploads/img_op_1754363999727.png. Updating history.
+Step 6: History updated. Encoding and returning image data.
+--- Generating Editor Image (Operation ID: img_op_1754364094880) ---
+ * Serving Flask app 'app_noservice'
+ * Debug mode: off
+ * Serving Flask app 'app_noservice'
+ * Debug mode: off
