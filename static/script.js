@@ -193,7 +193,6 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('Please add prompts to the queue first.');
             return;
         }
-        showLoading();
         try {
             const response = await fetch('/generate-videos', {
                 method: 'POST',
@@ -511,7 +510,6 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('Please add items to the image generation queue first.');
             return;
         }
-        showLoading();
         imageVideoStatusContainer.innerHTML = '<h3>Image to Video Generation Status</h3>';
         const promises = imagePromptsForGeneration.map(item => {
             const formData = new FormData();
