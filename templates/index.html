@@ -14,7 +14,7 @@
     </div>
     <div class="container mt-5">
         <div class="header">
-            <h1>Veo AI Prompt Engineering</h1>
+            <h1>GenMedia Garage</h1>
             <div class="theme-switch-wrapper">
                 <label class="theme-switch" for="checkbox">
                     <input type="checkbox" id="checkbox" />
@@ -40,7 +40,25 @@
                 <button class="nav-link" id="editor-tab" data-bs-toggle="tab" data-bs-target="#image-editor" type="button" role="tab" aria-controls="image-editor" aria-selected="false">Image Editor</button>
             </li>
             <li class="nav-item" role="presentation">
+                <button class="nav-link" id="segmentation-tab" data-bs-toggle="tab" data-bs-target="#segmentation" type="button" role="tab" aria-controls="segmentation" aria-selected="false">Segmentation</button>
+            </li>
+            <li class="nav-item" role="presentation">
                 <button class="nav-link" id="settings-tab" data-bs-toggle="tab" data-bs-target="#settings" type="button" role="tab" aria-controls="settings" aria-selected="false">Settings</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="vto-tab" data-bs-toggle="tab" data-bs-target="#vto" type="button" role="tab" aria-controls="vto" aria-selected="false">Virtual Try-On</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="product-recontext-tab" data-bs-toggle="tab" data-bs-target="#product-recontext" type="button" role="tab" aria-controls="product-recontext" aria-selected="false">Product Recontext</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="veo-edit-tab" data-bs-toggle="tab" data-bs-target="#veo-edit" type="button" role="tab" aria-controls="veo-edit" aria-selected="false">VEO Edit</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="imagen-edit-tab" data-bs-toggle="tab" data-bs-target="#imagen-edit" type="button" role="tab" aria-controls="imagen-edit" aria-selected="false">Imagen3 Editing</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="veo-advanced-edit-tab" data-bs-toggle="tab" data-bs-target="#veo-advanced-edit" type="button" role="tab" aria-controls="veo-advanced-edit" aria-selected="false">VEO Advanced Edit</button>
             </li>
         </ul>
 
@@ -343,6 +361,490 @@ YAML:
                     </div>
                 </div>
             </div>
+
+            <!-- Segmentation Tab -->
+            <div class="tab-pane fade" id="segmentation" role="tabpanel" aria-labelledby="segmentation-tab">
+                <div class="mt-4">
+                    <h3>Image Segmentation</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label for="segmentation-image-upload" class="form-label">Upload Image</label>
+                                <input type="file" class="form-control" id="segmentation-image-upload" accept="image/*">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="segmentation-mode" class="form-label">Segmentation Mode</label>
+                                <select class="form-select" id="segmentation-mode">
+                                    <option value="foreground" selected>Foreground</option>
+                                    <option value="background">Background</option>
+                                    <option value="semantic">Semantic</option>
+                                    <option value="prompt">Prompt</option>
+                                </select>
+                            </div>
+                            <div class="form-group mb-3" id="segmentation-prompt-container" style="display: none;">
+                                <label for="segmentation-prompt" class="form-label">Prompt</label>
+                                <input type="text" class="form-control" id="segmentation-prompt" placeholder="e.g., cat, dog or a running horse">
+                            </div>
+                            <button id="run-segmentation-btn" class="btn btn-primary">Run Segmentation</button>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5>Original Image</h5>
+                                    <img id="segmentation-original-image" src="" class="img-fluid" alt="Original Image">
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <h5>Segmentation Masks</h5>
+                                    <div id="segmentation-masks-container" class="row">
+                                        <!-- Masks will be displayed here -->
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <h5>Logs</h5>
+                                    <pre id="segmentation-logs" class="log-box"></pre>
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <h5>JSON Output</h5>
+                                    <pre id="segmentation-json-output" class="log-box"></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Recontextualization Tab -->
+            <div class="tab-pane fade" id="product-recontext" role="tabpanel" aria-labelledby="product-recontext-tab">
+                <div class="mt-4">
+                    <h3>Product Recontextualization</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label for="recontext-prompt" class="form-label">Prompt</label>
+                                <input type="text" class="form-control" id="recontext-prompt" placeholder="e.g., a handbag on a marble table">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="recontext-product-description" class="form-label">Product Description</label>
+                                <input type="text" class="form-control" id="recontext-product-description" placeholder="e.g., a red leather handbag">
+                            </div>
+                             <div class="form-group mb-3">
+                                <label for="recontext-images" class="form-label">Product Images (up to 3)</label>
+                                <input type="file" class="form-control" id="recontext-images" accept="image/*" multiple>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="recontext-image-uris" class="form-label">Image GCS URIs (comma-separated)</label>
+                                <input type="text" class="form-control" id="recontext-image-uris" placeholder="gs://bucket/img1.jpg,gs://bucket/img2.jpg">
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="recontext-disable-prompt-enhancement">
+                                <label class="form-check-label" for="recontext-disable-prompt-enhancement">
+                                    Disable Prompt Enhancement
+                                </label>
+                            </div>
+                             <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label for="recontext-sample-count" class="form-label">Sample Count</label>
+                                        <input type="number" class="form-control" id="recontext-sample-count" value="1" min="1" max="4">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label for="recontext-base-steps" class="form-label">Base Steps</label>
+                                        <input type="number" class="form-control" id="recontext-base-steps">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label for="recontext-aspect-ratio" class="form-label">Aspect Ratio</label>
+                                        <select class="form-select" id="recontext-aspect-ratio">
+                                            <option value="1:1" selected>1:1</option>
+                                            <option value="9:16">9:16</option>
+                                            <option value="16:9">16:9</option>
+                                            <option value="3:4">3:4</option>
+                                            <option value="4:3">4:3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label for="recontext-resolution" class="form-label">Resolution</label>
+                                        <select class="form-select" id="recontext-resolution">
+                                            <option value="1024" selected>1024x1024</option>
+                                            <option value="2048">2048x2048</option>
+                                            <option value="4096">4096x4096</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="recontext-seed" class="form-label">Seed</label>
+                                <input type="number" class="form-control" id="recontext-seed" value="42">
+                            </div>
+                             <div class="form-group mb-3">
+                                <label for="recontext-safety-setting" class="form-label">Safety Setting</label>
+                                <select class="form-select" id="recontext-safety-setting">
+                                    <option value="block_low_and_above" selected>Block Low and Above</option>
+                                    <option value="block_medium_and_above">Block Medium and Above</option>
+                                    <option value="block_only_high">Block Only High</option>
+                                    <option value="block_none">Block None</option>
+                                </select>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="recontext-person-generation" class="form-label">Person Generation</label>
+                                <select class="form-select" id="recontext-person-generation">
+                                    <option value="allow_adult" selected>Allow Adult</option>
+                                    <option value="dont_allow">Don't Allow</option>
+                                    <option value="allow_all">Allow All</option>
+                                </select>
+                            </div>
+                            <button id="run-recontext-btn" class="btn btn-primary">Run Recontextualization</button>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Generated Images</h5>
+                            <div id="recontext-generated-images" class="row">
+                                <!-- Generated images will be displayed here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VEO Edit Tab -->
+            <div class="tab-pane fade" id="veo-edit" role="tabpanel" aria-labelledby="veo-edit-tab">
+                <div class="mt-4">
+                    <h3>VEO Video Editing</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label for="veo-edit-prompt" class="form-label">Prompt</label>
+                                <input type="text" class="form-control" id="veo-edit-prompt" placeholder="e.g., snow covered mountains">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="veo-edit-video-gcs" class="form-label">Video GCS URI</label>
+                                <input type="text" class="form-control" id="veo-edit-video-gcs" placeholder="gs://bucket/video.mp4">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="veo-edit-video-file" class="form-label">Or Upload Video</label>
+                                <input type="file" class="form-control" id="veo-edit-video-file" accept="video/mp4">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="veo-edit-mask-gcs" class="form-label">Mask GCS URI</label>
+                                <input type="text" class="form-control" id="veo-edit-mask-gcs" placeholder="gs://bucket/mask.png">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="veo-edit-mask-file" class="form-label">Or Upload Mask</label>
+                                <input type="file" class="form-control" id="veo-edit-mask-file" accept="image/png, image/jpeg, video/mp4">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="veo-edit-mask-mime-type" class="form-label">Mask Mime Type</label>
+                                <select class="form-select" id="veo-edit-mask-mime-type">
+                                    <option value="image/png" selected>image/png</option>
+                                    <option value="image/jpeg">image/jpeg</option>
+                                    <option value="video/mp4">video/mp4</option>
+                                </select>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="veo-edit-mask-mode" class="form-label">Mask Mode</label>
+                                <select class="form-select" id="veo-edit-mask-mode">
+                                    <option value="INPAINT" selected>Inpaint</option>
+                                    <option value="INPAINT_DYNAMIC">Inpaint Dynamic</option>
+                                    <option value="OUTPAINT">Outpaint</option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label for="veo-edit-aspect-ratio" class="form-label">Aspect Ratio</label>
+                                        <select class="form-select" id="veo-edit-aspect-ratio">
+                                            <option value="16:9" selected>16:9</option>
+                                            <option value="9:16">9:16</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label for="veo-edit-duration" class="form-label">Duration (seconds)</label>
+                                        <input type="number" class="form-control" id="veo-edit-duration" value="8">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="veo-edit-enhance-prompt">
+                                <label class="form-check-label" for="veo-edit-enhance-prompt">
+                                    Enhance Prompt
+                                </label>
+                            </div>
+                            <button id="run-veo-edit-btn" class="btn btn-primary">Run VEO Edit</button>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Generation Status</h5>
+                            <div id="veo-edit-status-container">
+                                <!-- VEO edit status will appear here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Imagen 3 Editing Tab -->
+            <div class="tab-pane fade" id="imagen-edit" role="tabpanel" aria-labelledby="imagen-edit-tab">
+                <div class="mt-4">
+                    <h3>Imagen 3 Image Editing</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label for="imagen-edit-prompt" class="form-label">Edit Prompt</label>
+                                <input type="text" class="form-control" id="imagen-edit-prompt" placeholder="e.g., a corgi sitting on a couch">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="imagen-edit-original-image" class="form-label">Original Image</label>
+                                <input type="file" class="form-control" id="imagen-edit-original-image" accept="image/*" required>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="imagen-edit-mask-image" class="form-label">Mask Image (optional)</label>
+                                <input type="file" class="form-control" id="imagen-edit-mask-image" accept="image/*">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="imagen-edit-mode" class="form-label">Edit Mode</label>
+                                <select class="form-select" id="imagen-edit-mode">
+                                    <option value="EDIT_MODE_INPAINT_INSERTION" selected>Inpainting Insert</option>
+                                    <option value="EDIT_MODE_INPAINT_REMOVAL">Inpainting Remove</option>
+                                    <option value="EDIT_MODE_BGSWAP">Product Background Swap</option>
+                                    <option value="EDIT_MODE_OUTPAINT">Outpainting</option>
+                                    <option value="EDIT_MODE_DEFAULT">Mask-free</option>
+                                </select>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="imagen-mask-mode" class="form-label">Mask Mode</label>
+                                <select class="form-select" id="imagen-mask-mode">
+                                    <option value="MASK_MODE_FOREGROUND" selected>Foreground</option>
+                                    <option value="MASK_MODE_BACKGROUND">Background</option>
+                                    <option value="MASK_MODE_SEMANTIC">Semantic</option>
+                                    <option value="MASK_MODE_USER_PROVIDED">User Provided</option>
+                                </select>
+                            </div>
+                            <button id="run-imagen-edit-btn" class="btn btn-primary">Run Imagen Edit</button>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Result</h5>
+                            <div id="imagen-edit-result-container" class="row">
+                                <div class="col-6">
+                                    <h6>Original</h6>
+                                    <img id="imagen-edit-original-preview" src="" class="img-fluid">
+                                </div>
+                                <div class="col-6">
+                                    <h6>Edited</h6>
+                                    <img id="imagen-edit-edited-preview" src="" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VEO Advanced Edit Tab -->
+            <div class="tab-pane fade" id="veo-advanced-edit" role="tabpanel" aria-labelledby="veo-advanced-edit-tab">
+                <div class="mt-4">
+                    <h3>VEO Advanced Video Editing</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label for="veo-advanced-prompt" class="form-label">Prompt</label>
+                                <input type="text" class="form-control" id="veo-advanced-prompt" placeholder="e.g., make the person look surprised">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="veo-advanced-camera-control" class="form-label">Camera Control</label>
+                                <select class="form-select" id="veo-advanced-camera-control">
+                                    <option value="" selected>None</option>
+                                    <option value="FIXED">Fixed</option>
+                                    <option value="PAN_LEFT">Pan Left</option>
+                                    <option value="PAN_RIGHT">Pan Right</option>
+                                    <option value="TILT_UP">Tilt Up</option>
+                                    <option value="TILT_DOWN">Tilt Down</option>
+                                    <option value="TRUCK_LEFT">Truck Left</option>
+                                    <option value="TRUCK_RIGHT">Truck Right</option>
+                                    <option value="PEDESTAL_UP">Pedestal Up</option>
+                                    <option value="PEDESTAL_DOWN">Pedestal Down</option>
+                                    <option value="PUSH_IN">Push In</option>
+                                    <option value="PULL_OUT">Pull Out</option>
+                                </select>
+                            </div>
+                            <hr>
+                            <h5>Inputs</h5>
+                            <div class="form-group mb-3">
+                                <label for="veo-advanced-image-gcs" class="form-label">Image GCS URI</label>
+                                <input type="text" class="form-control" id="veo-advanced-image-gcs" placeholder="gs://bucket/image.jpg">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="veo-advanced-image-file" class="form-label">Or Upload Image</label>
+                                <input type="file" class="form-control" id="veo-advanced-image-file" accept="image/jpeg,image/png">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="veo-advanced-video-gcs" class="form-label">Video GCS URI (for extension)</label>
+                                <input type="text" class="form-control" id="veo-advanced-video-gcs" placeholder="gs://bucket/video.mp4">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="veo-advanced-video-file" class="form-label">Or Upload Video</label>
+                                <input type="file" class="form-control" id="veo-advanced-video-file" accept="video/mp4">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="veo-advanced-last-frame-gcs" class="form-label">Last Frame GCS URI</label>
+                                <input type="text" class="form-control" id="veo-advanced-last-frame-gcs" placeholder="gs://bucket/last_frame.jpg">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="veo-advanced-last-frame-file" class="form-label">Or Upload Last Frame</label>
+                                <input type="file" class="form-control" id="veo-advanced-last-frame-file" accept="image/jpeg,image/png">
+                            </div>
+                            <hr>
+                            <h5>Parameters</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label for="veo-advanced-aspect-ratio" class="form-label">Aspect Ratio</label>
+                                        <select class="form-select" id="veo-advanced-aspect-ratio">
+                                            <option value="16:9" selected>16:9</option>
+                                            <option value="9:16">9:16</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label for="veo-advanced-duration" class="form-label">Duration (seconds)</label>
+                                        <select class="form-select" id="veo-advanced-duration">
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8" selected>8</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="veo-advanced-enhance-prompt">
+                                <label class="form-check-label" for="veo-advanced-enhance-prompt">
+                                    Enhance Prompt
+                                </label>
+                            </div>
+                            <button id="run-veo-advanced-edit-btn" class="btn btn-primary">Run VEO Advanced Edit</button>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Generation Status</h5>
+                            <div id="veo-advanced-edit-status-container">
+                                <!-- VEO advanced edit status will appear here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Virtual Try-On Tab -->
+            <div class="tab-pane fade" id="vto" role="tabpanel" aria-labelledby="vto-tab">
+                <div class="mt-4">
+                    <h3>Virtual Try-On</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label for="vto-prompt" class="form-label">Prompt</label>
+                                <input type="text" class="form-control" id="vto-prompt" placeholder="e.g., a woman wearing a blue denim jacket">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="vto-person-description" class="form-label">Person Description</label>
+                                <input type="text" class="form-control" id="vto-person-description" placeholder="e.g., a woman with blonde hair">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="vto-product-description" class="form-label">Product Description</label>
+                                <input type="text" class="form-control" id="vto-product-description" placeholder="e.g., a blue denim jacket">
+                            </div>
+
+                            <hr>
+
+                            <div class="form-group mb-3">
+                                <label for="vto-model-endpoint" class="form-label">Endpoint</label>
+                                <select class="form-select" id="vto-model-endpoint">
+                                    <option value="virtual-try-on-exp-05-31" selected>Experimental (05-31)</option>
+                                    <option value="virtual-try-on-preview-08-04">Preview (08-04)</option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label for="vto-sample-count" class="form-label">Sample Count</label>
+                                        <input type="number" class="form-control" id="vto-sample-count" value="1" min="1">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label for="vto-base-steps" class="form-label">Base Steps</label>
+                                        <input type="number" class="form-control" id="vto-base-steps" value="32" min="1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="vto-seed" class="form-label">Seed</label>
+                                <input type="number" class="form-control" id="vto-seed" value="42">
+                            </div>
+
+                            <hr>
+
+                            <label class="form-label">Person Image</label>
+                            <div class="input-group mb-3">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="person-image-source" id="person-image-file-radio" value="file" checked>
+                                    <label class="form-check-label" for="person-image-file-radio">File</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="person-image-source" id="person-image-uri-radio" value="uri">
+                                    <label class="form-check-label" for="person-image-uri-radio">URI</label>
+                                </div>
+                            </div>
+                            <div id="vto-person-image-file-container">
+                                <input type="file" class="form-control" id="vto-person-image" accept="image/*">
+                            </div>
+                            <div id="vto-person-image-uri-container" style="display: none;">
+                                <input type="text" class="form-control" id="vto-person-image-uri" placeholder="gs://bucket/image.jpg">
+                            </div>
+
+                            <label class="form-label mt-3">Product Image</label>
+                            <div class="input-group mb-3">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="product-image-source" id="product-image-file-radio" value="file" checked>
+                                    <label class="form-check-label" for="product-image-file-radio">File</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="product-image-source" id="product-image-uri-radio" value="uri">
+                                    <label class="form-check-label" for="product-image-uri-radio">URI</label>
+                                </div>
+                            </div>
+                            <div id="vto-product-image-file-container">
+                                <input type="file" class="form-control" id="vto-product-image" accept="image/*">
+                            </div>
+                            <div id="vto-product-image-uri-container" style="display: none;">
+                                <input type="text" class="form-control" id="vto-product-image-uri" placeholder="gs://bucket/image.jpg">
+                            </div>
+
+                            <div class="form-check mb-3 mt-3">
+                                <input class="form-check-input" type="checkbox" value="" id="vto-mask-checkbox">
+                                <label class="form-check-label" for="vto-mask-checkbox">
+                                    Use Mask
+                                </label>
+                            </div>
+                            <div class="form-group mb-3" id="vto-mask-container" style="display: none;">
+                                <label for="vto-mask-image" class="form-label">Mask Image</label>
+                                <input type="file" class="form-control" id="vto-mask-image" accept="image/*">
+                            </div>
+                            <button id="run-vto-btn" class="btn btn-primary">Run Virtual Try-On</button>
+                        </div>
+                        <div class="col-.md-6">
+                            <h5>Generated Image</h5>
+                            <img id="vto-generated-image" src="" class="img-fluid" alt="Generated Image">
+                            <button id="send-vto-to-video-tab-btn" class="btn btn-primary mt-2" disabled>Use this Image for Video</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -355,6 +857,16 @@ YAML:
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    <div class="form-group mb-3">
+                        <label for="crop-aspect-ratio" class="form-label">Aspect Ratio</label>
+                        <select class="form-select" id="crop-aspect-ratio">
+                            <option value="1.7777777777777777" selected>16:9</option>
+                            <option value="0.5625">9:16</option>
+                            <option value="1">1:1</option>
+                            <option value="0.75">3:4</option>
+                            <option value="1.3333333333333333">4:3</option>
+                        </select>
+                    </div>
                     <div>
                         <img id="image-to-crop" src="" style="max-width: 100%;">
                     </div>

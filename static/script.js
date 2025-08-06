@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const cropModal = new bootstrap.Modal(document.getElementById('cropModal'));
     const imageToCrop = document.getElementById('image-to-crop');
     const cropAndSaveBtn = document.getElementById('crop-and-save-btn');
+    const cropAspectRatioSelect = document.getElementById('crop-aspect-ratio');
     const editorImageUpload = document.getElementById('editor-image-upload');
     const editorCanvas = document.getElementById('editor-canvas');
     const brushColorInput = document.getElementById('brush-color');
@@ -66,6 +67,77 @@ document.addEventListener('DOMContentLoaded', function () {
     const validationStatus = document.getElementById('validation-status');
     const usageDashboard = document.getElementById('usage-dashboard');
     const usageReport = document.getElementById('usage-report');
+    const segmentationImageUpload = document.getElementById('segmentation-image-upload');
+    const segmentationMode = document.getElementById('segmentation-mode');
+    const segmentationPromptContainer = document.getElementById('segmentation-prompt-container');
+    const segmentationPrompt = document.getElementById('segmentation-prompt');
+    const runSegmentationBtn = document.getElementById('run-segmentation-btn');
+    const segmentationOriginalImage = document.getElementById('segmentation-original-image');
+    const segmentationMasksContainer = document.getElementById('segmentation-masks-container');
+    const vtoMaskCheckbox = document.getElementById('vto-mask-checkbox');
+    const vtoMaskContainer = document.getElementById('vto-mask-container');
+    const runVtoBtn = document.getElementById('run-vto-btn');
+    const vtoPersonImage = document.getElementById('vto-person-image');
+    const vtoProductImage = document.getElementById('vto-product-image');
+    const vtoMaskImage = document.getElementById('vto-mask-image');
+    const vtoGeneratedImage = document.getElementById('vto-generated-image');
+    const vtoPrompt = document.getElementById('vto-prompt');
+    const vtoPersonDescription = document.getElementById('vto-person-description');
+    const vtoProductDescription = document.getElementById('vto-product-description');
+    const vtoPersonImageUri = document.getElementById('vto-person-image-uri');
+    const vtoProductImageUri = document.getElementById('vto-product-image-uri');
+    const vtoModelEndpoint = document.getElementById('vto-model-endpoint');
+    const vtoSampleCount = document.getElementById('vto-sample-count');
+    const vtoBaseSteps = document.getElementById('vto-base-steps');
+    const vtoSeed = document.getElementById('vto-seed');
+    const sendVtoToVideoTabBtn = document.getElementById('send-vto-to-video-tab-btn');
+    const runRecontextBtn = document.getElementById('run-recontext-btn');
+    const recontextImages = document.getElementById('recontext-images');
+    const recontextImageUris = document.getElementById('recontext-image-uris');
+    const recontextPrompt = document.getElementById('recontext-prompt');
+    const recontextProductDescription = document.getElementById('recontext-product-description');
+    const recontextDisablePromptEnhancement = document.getElementById('recontext-disable-prompt-enhancement');
+    const recontextSampleCount = document.getElementById('recontext-sample-count');
+    const recontextBaseSteps = document.getElementById('recontext-base-steps');
+    const recontextSafetySetting = document.getElementById('recontext-safety-setting');
+    const recontextPersonGeneration = document.getElementById('recontext-person-generation');
+    const recontextGeneratedImages = document.getElementById('recontext-generated-images');
+    const recontextAspectRatio = document.getElementById('recontext-aspect-ratio');
+    const recontextResolution = document.getElementById('recontext-resolution');
+    const recontextSeed = document.getElementById('recontext-seed');
+    const runVeoEditBtn = document.getElementById('run-veo-edit-btn');
+    const veoEditPrompt = document.getElementById('veo-edit-prompt');
+    const veoEditVideoGcs = document.getElementById('veo-edit-video-gcs');
+    const veoEditVideoFile = document.getElementById('veo-edit-video-file');
+    const veoEditMaskGcs = document.getElementById('veo-edit-mask-gcs');
+    const veoEditMaskFile = document.getElementById('veo-edit-mask-file');
+    const veoEditMaskMimeType = document.getElementById('veo-edit-mask-mime-type');
+    const veoEditMaskMode = document.getElementById('veo-edit-mask-mode');
+    const veoEditAspectRatio = document.getElementById('veo-edit-aspect-ratio');
+    const veoEditDuration = document.getElementById('veo-edit-duration');
+    const veoEditEnhancePrompt = document.getElementById('veo-edit-enhance-prompt');
+    const veoEditStatusContainer = document.getElementById('veo-edit-status-container');
+    const runImagenEditBtn = document.getElementById('run-imagen-edit-btn');
+    const imagenEditPrompt = document.getElementById('imagen-edit-prompt');
+    const imagenEditOriginalImage = document.getElementById('imagen-edit-original-image');
+    const imagenEditMaskImage = document.getElementById('imagen-edit-mask-image');
+    const imagenEditMode = document.getElementById('imagen-edit-mode');
+    const imagenMaskMode = document.getElementById('imagen-mask-mode');
+    const imagenEditOriginalPreview = document.getElementById('imagen-edit-original-preview');
+    const imagenEditEditedPreview = document.getElementById('imagen-edit-edited-preview');
+    const runVeoAdvancedEditBtn = document.getElementById('run-veo-advanced-edit-btn');
+    const veoAdvancedPrompt = document.getElementById('veo-advanced-prompt');
+    const veoAdvancedCameraControl = document.getElementById('veo-advanced-camera-control');
+    const veoAdvancedImageGcs = document.getElementById('veo-advanced-image-gcs');
+    const veoAdvancedImageFile = document.getElementById('veo-advanced-image-file');
+    const veoAdvancedVideoGcs = document.getElementById('veo-advanced-video-gcs');
+    const veoAdvancedVideoFile = document.getElementById('veo-advanced-video-file');
+    const veoAdvancedLastFrameGcs = document.getElementById('veo-advanced-last-frame-gcs');
+    const veoAdvancedLastFrameFile = document.getElementById('veo-advanced-last-frame-file');
+    const veoAdvancedAspectRatio = document.getElementById('veo-advanced-aspect-ratio');
+    const veoAdvancedDuration = document.getElementById('veo-advanced-duration');
+    const veoAdvancedEnhancePrompt = document.getElementById('veo-advanced-enhance-prompt');
+    const veoAdvancedEditStatusContainer = document.getElementById('veo-advanced-edit-status-container');
 
     let promptsForGeneration = [];
     let imagePromptsForGeneration = [];
@@ -281,18 +353,51 @@ document.addEventListener('DOMContentLoaded', function () {
                 const headerId = `header-${item.id}`;
                 const collapseId = `collapse-${item.id}`;
                 let bodyContent = `<p><strong>Status:</strong> ${item.status}</p>`;
+                let mediaHtml = '<div class="history-media">';
+                let hasMedia = false;
 
-                if (item.image_path) {
-                    bodyContent += `<div class="history-media"><div class="history-item"><h6>Initial Image</h6><img src="${item.image_path}" alt="Initial image" style="max-width: 100%; border-radius: 5px;"></div>`;
+                // Handle initial image for video generations
+                if (item.image_path && (item.operation_type !== 'vto' && item.operation_type !== 'recontext' && item.operation_type !== 'segmentation')) {
+                    mediaHtml += `<div class="history-item"><h6>Initial Image</h6><img src="${item.image_path}" alt="Initial image" style="max-width: 100%; border-radius: 5px;"></div>`;
+                    hasMedia = true;
                 }
+
+                // Handle generated video
                 if (item.status === 'completed' && item.video_path) {
-                    bodyContent += `<div class="history-item"><h6>Generated Video</h6><video controls width="100%"><source src="${item.video_path}" type="video/mp4"></video><a href="${item.video_path}" class="btn btn-success mt-2" download>Download Video</a></div></div>`;
-                } else if (item.image_path && item.status === 'completed') {
-                    bodyContent += `<div class="history-item"><h6>Generated Image</h6><img src="${item.image_path}" alt="Generated image" style="max-width: 100%; border-radius: 5px;"><a href="${item.image_path}" class="btn btn-success mt-2" download>Download Image</a></div></div>`;
-                } else if (item.status === 'failed') {
-                    bodyContent += `<div class="history-item"><h6>Error</h6><p class="text-danger">${item.error_message}</p></div></div>`;
-                } else if (item.image_path) {
-                    bodyContent += `</div>`;
+                    mediaHtml += `<div class="history-item"><h6>Generated Video</h6><video controls width="100%"><source src="${item.video_path}" type="video/mp4"></video><a href="${item.video_path}" class="btn btn-success mt-2" download>Download Video</a></div>`;
+                    hasMedia = true;
+                }
+
+                // Handle generated image for VTO, recontext, etc.
+                if (item.status === 'completed' && item.image_path && (item.operation_type === 'vto' || item.operation_type === 'recontext' || item.operation_type === 'segmentation')) {
+                    mediaHtml += `<div class="history-item"><h6>Generated Image</h6><img src="${item.image_path}" alt="Generated image" style="max-width: 100%; border-radius: 5px;"><a href="${item.image_path}" class="btn btn-success mt-2" download>Download Image</a></div>`;
+                    hasMedia = true;
+                }
+                
+                // Handle segmentation masks
+                if (item.operation_type === 'segmentation' && item.output_payload) {
+                    try {
+                        const output = JSON.parse(item.output_payload);
+                        if (output.masks && output.masks.length > 0) {
+                            mediaHtml += `<div class="history-item"><h6>Segmentation Masks</h6>`;
+                            output.masks.forEach(maskUrl => {
+                                mediaHtml += `<img src="${maskUrl}" alt="Segmentation Mask" style="max-width: 30%; border-radius: 5px; margin: 5px;">`;
+                            });
+                            mediaHtml += `</div>`;
+                            hasMedia = true;
+                        }
+                    } catch(e) { console.error("Error parsing segmentation output payload", e); }
+                }
+
+
+                if (item.status === 'failed') {
+                    mediaHtml += `<div class="history-item"><h6>Error</h6><p class="text-danger">${item.error_message || 'No error message provided.'}</p></div>`;
+                    hasMedia = true;
+                }
+
+                mediaHtml += '</div>';
+                if (hasMedia) {
+                    bodyContent += mediaHtml;
                 }
 
                 historyItem.innerHTML = `
@@ -411,9 +516,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (cropper) {
                     cropper.destroy();
                 }
-                const aspectRatio = imageAspectRatioSelect.value.split(':').map(Number);
                 cropper = new Cropper(imageToCrop, {
-                    aspectRatio: aspectRatio[0] / aspectRatio[1],
+                    aspectRatio: parseFloat(cropAspectRatioSelect.value),
                     viewMode: 1,
                 });
             };
@@ -421,10 +525,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    imageAspectRatioSelect.addEventListener('change', () => {
+    cropAspectRatioSelect.addEventListener('change', () => {
         if (cropper) {
-            const aspectRatio = imageAspectRatioSelect.value.split(':').map(Number);
-            cropper.setAspectRatio(aspectRatio[0] / aspectRatio[1]);
+            cropper.setAspectRatio(parseFloat(cropAspectRatioSelect.value));
         }
     });
 
@@ -862,4 +965,426 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     loadSettings();
+
+    // Segmentation Logic
+    segmentationMode.addEventListener('change', () => {
+        if (segmentationMode.value === 'semantic' || segmentationMode.value === 'prompt') {
+            segmentationPromptContainer.style.display = 'block';
+        } else {
+            segmentationPromptContainer.style.display = 'none';
+        }
+    });
+
+    segmentationImageUpload.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                segmentationOriginalImage.src = event.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+
+    runSegmentationBtn.addEventListener('click', async () => {
+        const imageFile = segmentationImageUpload.files[0];
+        const mode = segmentationMode.value;
+        const prompt = segmentationPrompt.value;
+
+        if (!imageFile) {
+            alert('Please upload an image for segmentation.');
+            return;
+        }
+
+        if ((mode === 'semantic' || mode === 'prompt') && !prompt.trim()) {
+            alert('Please provide a prompt for this segmentation mode.');
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('image', imageFile);
+        formData.append('mode', mode);
+        if (prompt) {
+            formData.append('prompt', prompt);
+        }
+
+        showLoading();
+        try {
+            const response = await fetch('/segment-image', {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            if (data.error) {
+                alert(`Error: ${data.error}`);
+            } else {
+                segmentationMasksContainer.innerHTML = '';
+                data.masks.forEach(maskUrl => {
+                    const imgElement = document.createElement('img');
+                    imgElement.src = maskUrl;
+                    imgElement.className = 'img-fluid col-md-4';
+                    segmentationMasksContainer.appendChild(imgElement);
+                });
+            }
+        } catch (error) {
+            console.error('Error during segmentation:', error);
+            alert('Failed to segment image. See console for details.');
+        } finally {
+            hideLoading();
+        }
+    });
+
+    // Virtual Try-On Logic
+    vtoMaskCheckbox.addEventListener('change', () => {
+        vtoMaskContainer.style.display = vtoMaskCheckbox.checked ? 'block' : 'none';
+    });
+
+    document.querySelectorAll('input[name="person-image-source"]').forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            if (e.target.value === 'file') {
+                document.getElementById('vto-person-image-file-container').style.display = 'block';
+                document.getElementById('vto-person-image-uri-container').style.display = 'none';
+            } else {
+                document.getElementById('vto-person-image-file-container').style.display = 'none';
+                document.getElementById('vto-person-image-uri-container').style.display = 'block';
+            }
+        });
+    });
+
+    document.querySelectorAll('input[name="product-image-source"]').forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            if (e.target.value === 'file') {
+                document.getElementById('vto-product-image-file-container').style.display = 'block';
+                document.getElementById('vto-product-image-uri-container').style.display = 'none';
+            } else {
+                document.getElementById('vto-product-image-file-container').style.display = 'none';
+                document.getElementById('vto-product-image-uri-container').style.display = 'block';
+            }
+        });
+    });
+
+    runVtoBtn.addEventListener('click', async () => {
+        const personImageFile = vtoPersonImage.files[0];
+        const productImageFile = vtoProductImage.files[0];
+        const maskImageFile = vtoMaskImage.files[0];
+        const personImageUri = vtoPersonImageUri.value;
+        const productImageUri = vtoProductImageUri.value;
+
+        const personImageSource = document.querySelector('input[name="person-image-source"]:checked').value;
+        const productImageSource = document.querySelector('input[name="product-image-source"]:checked').value;
+
+        if ((personImageSource === 'file' && !personImageFile) || (personImageSource === 'uri' && !personImageUri)) {
+            alert('Please provide a person image (either file or URI).');
+            return;
+        }
+
+        if ((productImageSource === 'file' && !productImageFile) || (productImageSource === 'uri' && !productImageUri)) {
+            alert('Please provide a product image (either file or URI).');
+            return;
+        }
+
+        if (vtoMaskCheckbox.checked && !maskImageFile) {
+            alert('Please upload a mask image or uncheck the "Use Mask" box.');
+            return;
+        }
+
+        const formData = new FormData();
+        if (personImageSource === 'file') {
+            formData.append('person_image', personImageFile);
+        } else {
+            formData.append('person_image_uri', personImageUri);
+        }
+
+        if (productImageSource === 'file') {
+            formData.append('product_image', productImageFile);
+        } else {
+            formData.append('product_image_uri', productImageUri);
+        }
+
+        if (vtoMaskCheckbox.checked && maskImageFile) {
+            formData.append('mask_image', maskImageFile);
+        }
+
+        formData.append('prompt', vtoPrompt.value);
+        formData.append('person_description', vtoPersonDescription.value);
+        formData.append('product_description', vtoProductDescription.value);
+        formData.append('model_endpoint_name', vtoModelEndpoint.value);
+        formData.append('sample_count', vtoSampleCount.value);
+        formData.append('base_steps', vtoBaseSteps.value);
+        formData.append('seed', vtoSeed.value);
+
+        showLoading();
+        try {
+            const response = await fetch('/vto', {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            if (data.error) {
+                alert(`Error: ${data.error}`);
+            } else {
+                vtoGeneratedImage.src = `data:image/png;base64,${data.generated_image}`;
+                sendVtoToVideoTabBtn.disabled = false;
+            }
+        } catch (error) {
+            console.error('Error during Virtual Try-On:', error);
+            alert('Failed to run Virtual Try-On. See console for details.');
+        } finally {
+            hideLoading();
+        }
+    });
+
+    // Product Recontextualization Logic
+    runRecontextBtn.addEventListener('click', async () => {
+        const imageFiles = recontextImages.files;
+        const imageUris = recontextImageUris.value.split(',').map(uri => uri.trim()).filter(uri => uri);
+
+        if (imageFiles.length === 0 && imageUris.length === 0) {
+            alert('Please provide at least one product image (either file or URI).');
+            return;
+        }
+
+        if (imageFiles.length > 3) {
+            alert('You can upload a maximum of 3 image files.');
+            return;
+        }
+
+        const formData = new FormData();
+        for (let i = 0; i < imageFiles.length; i++) {
+            formData.append('images', imageFiles[i]);
+        }
+        imageUris.forEach(uri => {
+            formData.append('image_uris', uri);
+        });
+
+        formData.append('prompt', recontextPrompt.value);
+        formData.append('product_description', recontextProductDescription.value);
+        formData.append('disable_prompt_enhancement', recontextDisablePromptEnhancement.checked);
+        formData.append('sample_count', recontextSampleCount.value);
+        if (recontextBaseSteps.value) {
+            formData.append('base_steps', recontextBaseSteps.value);
+        }
+        formData.append('aspect_ratio', recontextAspectRatio.value);
+        formData.append('resolution', recontextResolution.value);
+        formData.append('seed', recontextSeed.value);
+        formData.append('safety_setting', recontextSafetySetting.value);
+        formData.append('person_generation', recontextPersonGeneration.value);
+
+        showLoading();
+        try {
+            const response = await fetch('/product-recontext', {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            if (data.error) {
+                alert(`Error: ${data.error}`);
+            } else {
+                recontextGeneratedImages.innerHTML = '';
+                data.predictions.forEach(imgStr => {
+                    const divElement = document.createElement('div');
+                    divElement.className = 'col-md-12';
+                    const imgElement = document.createElement('img');
+                    imgElement.src = `data:image/png;base64,${imgStr}`;
+                    imgElement.className = 'img-fluid';
+                    const buttonElement = document.createElement('button');
+                    buttonElement.className = 'btn btn-primary btn-sm mt-2';
+                    buttonElement.textContent = 'Use this Image for Video';
+                    buttonElement.onclick = () => sendImageToVideoTab(imgStr);
+                    divElement.appendChild(imgElement);
+                    divElement.appendChild(buttonElement);
+                    recontextGeneratedImages.appendChild(divElement);
+                });
+            }
+        } catch (error) {
+            console.error('Error during Product Recontextualization:', error);
+            alert('Failed to run Product Recontextualization. See console for details.');
+        } finally {
+            hideLoading();
+        }
+    });
+
+    function sendImageToVideoTab(base64Image) {
+        const byteCharacters = atob(base64Image);
+        const byteNumbers = new Array(byteCharacters.length);
+        for (let i = 0; i < byteCharacters.length; i++) {
+            byteNumbers[i] = byteCharacters.charCodeAt(i);
+        }
+        const byteArray = new Uint8Array(byteNumbers);
+        const blob = new Blob([byteArray], {type: 'image/png'});
+        const file = new File([blob], "generated-image.png", { type: "image/png" });
+
+        const dataTransfer = new DataTransfer();
+        dataTransfer.items.add(file);
+        imageUpload.files = dataTransfer.files;
+
+        const changeEvent = new Event('change');
+        imageUpload.dispatchEvent(changeEvent);
+
+        const imageVideoTab = new bootstrap.Tab(document.getElementById('image-video-tab'));
+        imageVideoTab.show();
+    }
+
+    sendVtoToVideoTabBtn.addEventListener('click', () => {
+        const base64Image = vtoGeneratedImage.src.split(',')[1];
+        sendImageToVideoTab(base64Image);
+    });
+
+    runVeoEditBtn.addEventListener('click', async () => {
+        const formData = new FormData();
+        formData.append('prompt', veoEditPrompt.value);
+        formData.append('video_gcs', veoEditVideoGcs.value);
+        formData.append('mask_gcs', veoEditMaskGcs.value);
+        formData.append('mask_mime_type', veoEditMaskMimeType.value);
+        formData.append('mask_mode', veoEditMaskMode.value);
+        formData.append('aspect_ratio', veoEditAspectRatio.value);
+        formData.append('duration', veoEditDuration.value);
+        formData.append('enhance_prompt', veoEditEnhancePrompt.checked);
+
+        if (veoEditVideoFile.files[0]) {
+            formData.append('video_file', veoEditVideoFile.files[0]);
+        }
+        if (veoEditMaskFile.files[0]) {
+            formData.append('mask_file', veoEditMaskFile.files[0]);
+        }
+
+        if (!veoEditVideoGcs.value && !veoEditVideoFile.files[0]) {
+            alert('Please provide a video GCS URI or upload a video file.');
+            return;
+        }
+        if (!veoEditMaskGcs.value && !veoEditMaskFile.files[0]) {
+            alert('Please provide a mask GCS URI or upload a mask file.');
+            return;
+        }
+
+        showLoading();
+        try {
+            const response = await fetch('/veo-edit', {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            if (data.error) {
+                alert(`Error: ${data.error}`);
+            } else if (data.operation_id) {
+                veoEditStatusContainer.innerHTML = ''; // Clear previous statuses
+                displayVideoStatuses([data.operation_id], veoEditStatusContainer);
+            }
+        } catch (error) {
+            console.error('Error during VEO Edit:', error);
+            alert('Failed to run VEO Edit. See console for details.');
+        } finally {
+            hideLoading();
+        }
+    });
+
+    runImagenEditBtn.addEventListener('click', async () => {
+        const formData = new FormData();
+        formData.append('prompt', imagenEditPrompt.value);
+        formData.append('edit_mode', imagenEditMode.value);
+        formData.append('mask_mode', imagenMaskMode.value);
+
+        if (imagenEditOriginalImage.files[0]) {
+            formData.append('original_image', imagenEditOriginalImage.files[0]);
+        } else {
+            alert('Please upload an original image.');
+            return;
+        }
+
+        if (imagenEditMaskImage.files[0]) {
+            formData.append('mask_image', imagenEditMaskImage.files[0]);
+        }
+
+        showLoading();
+        try {
+            const response = await fetch('/imagen-edit', {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            if (data.error) {
+                alert(`Error: ${data.error}`);
+            } else {
+                imagenEditOriginalPreview.src = data.original_image_url;
+                imagenEditEditedPreview.src = data.edited_image_url;
+            }
+        } catch (error) {
+            console.error('Error during Imagen Edit:', error);
+            alert('Failed to run Imagen Edit. See console for details.');
+        } finally {
+            hideLoading();
+        }
+    });
+
+    runVeoAdvancedEditBtn.addEventListener('click', async () => {
+        const formData = new FormData();
+        formData.append('prompt', veoAdvancedPrompt.value);
+        formData.append('camera_control', veoAdvancedCameraControl.value);
+        formData.append('image_gcs', veoAdvancedImageGcs.value);
+        formData.append('video_gcs', veoAdvancedVideoGcs.value);
+        formData.append('last_frame_gcs', veoAdvancedLastFrameGcs.value);
+        formData.append('aspect_ratio', veoAdvancedAspectRatio.value);
+        formData.append('duration', veoAdvancedDuration.value);
+        formData.append('enhance_prompt', veoAdvancedEnhancePrompt.checked);
+
+        if (veoAdvancedImageFile.files[0]) {
+            formData.append('image_file', veoAdvancedImageFile.files[0]);
+        }
+        if (veoAdvancedVideoFile.files[0]) {
+            formData.append('video_file', veoAdvancedVideoFile.files[0]);
+        }
+        if (veoAdvancedLastFrameFile.files[0]) {
+            formData.append('last_frame_file', veoAdvancedLastFrameFile.files[0]);
+        }
+
+        showLoading();
+        try {
+            const response = await fetch('/veo-advanced-edit', {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            if (data.error) {
+                alert(`Error: ${data.error}`);
+            } else if (data.operation_id) {
+                veoAdvancedEditStatusContainer.innerHTML = ''; // Clear previous statuses
+                displayVideoStatuses([data.operation_id], veoAdvancedEditStatusContainer);
+            }
+        } catch (error) {
+            console.error('Error during VEO Advanced Edit:', error);
+            alert('Failed to run VEO Advanced Edit. See console for details.');
+        } finally {
+            hideLoading();
+        }
+    });
 });

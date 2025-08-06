@@ -1,11 +1,11 @@
 steps:
 # Build the container image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/my-app/app-noservice:latest', '.']
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/${_PROJECT_ID}/genmedia-garage/app:latest', '.']
 
 # Push the container image to Artifact Registry
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/my-app/app-noservice:latest']
+  args: ['push', 'us-central1-docker.pkg.dev/${_PROJECT_ID}/genmedia-garage/app:latest']
 
 # Deploy container image to Cloud Run
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -13,15 +13,18 @@ steps:
   args:
   - 'run'
   - 'deploy'
-  - 'app-noservice'
+  - 'genmedia-garage'
   - '--image'
-  - 'us-central1-docker.pkg.dev/$PROJECT_ID/my-app/app-noservice:latest'
+  - 'us-central1-docker.pkg.dev/${_PROJECT_ID}/genmedia-garage/app:latest'
   - '--region'
   - 'us-central1'
   - '--platform'
   - 'managed'
   - '--allow-unauthenticated'
   - '--set-env-vars'
-  - 'GCP_PROJECT=$PROJECT_ID,GCS_BUCKET_NAME=gk-test-veo'
+  - 'GCP_PROJECT=${_PROJECT_ID},GCS_BUCKET_NAME=${_GCS_BUCKET_NAME}'
 images:
-- 'us-central1-docker.pkg.dev/$PROJECT_ID/my-app/app-noservice:latest'
+- 'us-central1-docker.pkg.dev/${_PROJECT_ID}/genmedia-garage/app:latest'
+substitutions:
+  _PROJECT_ID: 'your-gcp-project-id'
+  _GCS_BUCKET_NAME: 'your-gcs-bucket-name'

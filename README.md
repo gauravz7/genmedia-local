@@ -1,6 +1,6 @@
-# Veo AI Prompt Engineering and Video Generation UI
+# GenMedia Garage
 
-A web-based application for prompt engineering and video generation using Google's Veo AI models via Vertex AI.
+A web-based application for prompt engineering, video generation, and creative AI tooling using Google's Generative AI models via Vertex AI.
 
 ## Features
 
@@ -38,12 +38,7 @@ This application uses your local Google Cloud user credentials.
 pip install -r requirements.txt
 ```
 
-### 3. Configure the Application
-Open `app_noservice.py` and update the following variables with your project details:
-- `PROJECT_ID`
-- `GCS_BUCKET_NAME`
-
-### 4. Run the Application
+### 3. Run the Application
 
 **As a background service on macOS:**
 
@@ -65,6 +60,38 @@ The `start_local.sh` script will tell you the exact command to run to stop the s
 ```bash
 python app_noservice.py
 ```
+
+## Cloud Deployment (Cloud Run)
+
+This application can be deployed as a serverless container on Google Cloud Run.
+
+### 1. Enable APIs
+Ensure you have the following APIs enabled in your Google Cloud project:
+- Vertex AI API
+- Cloud Build API
+- Artifact Registry API
+- Cloud Run API
+
+### 2. Set Permissions
+The Cloud Build service account needs permissions to deploy to Cloud Run and act as an IAM user. Run the following commands, replacing `PROJECT_ID` with your project ID:
+```bash
+PROJECT_NUMBER=$(gcloud projects describe PROJECT_ID --format='value(projectNumber)')
+gcloud projects add-iam-policy-binding PROJECT_ID \
+  --member="serviceAccount:$PROJECT_NUMBER@cloudbuild.gserviceaccount.com" \
+  --role="roles/run.admin"
+gcloud projects add-iam-policy-binding PROJECT_ID \
+  --member="serviceAccount:$PROJECT_NUMBER@cloudbuild.gserviceaccount.com" \
+  --role="roles/iam.serviceAccountUser"
+```
+
+### 3. Deploy
+Submit the build and deployment job to Cloud Build:
+```bash
+gcloud builds submit --config cloudbuild.yaml --substitutions=_PROJECT_ID=your-gcp-project-id,_GCS_BUCKET_NAME=your-gcs-bucket-name
+```
+Replace `your-gcp-project-id` and `your-gcs-bucket-name` with your actual project ID and GCS bucket name.
+
+The command will output the URL of your deployed service.
 
 ### Troubleshooting
 

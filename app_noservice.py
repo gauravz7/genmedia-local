@@ -17,6 +17,11 @@ from google.cloud import storage
 import vertexai
 from vertexai.preview.vision_models import ImageGenerationModel
 from google.protobuf.json_format import MessageToDict
+from segmentation import segment_image as segment_image_internal, initialize_segmentation_model
+from vto import get_vto_client, call_virtual_try_on, prediction_to_pil_image
+from prism import call_product_recontext, prediction_to_pil_image as prism_prediction_to_pil_image
+from veo_editing import generate_video as generate_veo_video, upload_to_gcs as upload_veo_to_gcs
+import imagenedit
 
 
 app = Flask(__name__)
@@ -35,16 +40,26 @@ os.makedirs(os.path.join('static', 'uploads'), exist_ok=True)
 
 client = None
 GEMINI_MODEL = "gemini-2.5-flash"
+segmentation_model = None
+imagen_client = None
 
 def init_clients(project_id, location):
-    global client
+    global client, segmentation_model, vto_client, imagen_client
     try:
         vertexai.init(project=project_id, location=location)
         client = genai.Client(vertexai=True, project=project_id, location=location)
+        segmentation_model = initialize_segmentation_model()
+        if not segmentation_model:
+            print("Warning: Segmentation model failed to initialize.")
+        vto_client = get_vto_client()
+        imagen_client = imagenedit.initialize_imagen_client(project_id, location)
         return True
     except Exception as e:
         print(f"Error during Google GenAI client initialization: {e}")
         client = None
+        segmentation_model = None
+        vto_client = None
+        imagen_client = None
         return False
 
 init_clients(PROJECT_ID, LOCATION)
@@ -59,6 +74,9 @@ class GenerationHistory(db.Model):
     image_path = db.Column(db.String(500), nullable=True)
     error_message = db.Column(db.String(500), nullable=True)
     timestamp = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+    input_payload = db.Column(db.Text, nullable=True)
+    output_payload = db.Column(db.Text, nullable=True)
+    operation_type = db.Column(db.String(50), nullable=True)
 
     def to_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
@@ -83,6 +101,18 @@ def upload_to_gcs(file_bytes, destination_blob_name):
         return f"gs://{GCS_BUCKET_NAME}/{destination_blob_name}"
     except Exception as e:
         print(f"Error uploading to GCS: {e}")
+        return None
+
+def download_from_gcs(bucket_name, source_blob_name, destination_file_name):
+    """Downloads a file from the bucket."""
+    try:
+        storage_client = storage.Client(project=PROJECT_ID)
+        bucket = storage_client.bucket(bucket_name)
+        blob = bucket.blob(source_blob_name)
+        blob.download_to_filename(destination_file_name)
+        return destination_file_name
+    except Exception as e:
+        print(f"Error downloading from GCS: {e}")
         return None
 
 def generate_veo_prompt_internal(user_prompt, system_instructions, image_data=None):
@@ -471,6 +501,249 @@ def save_settings():
     else:
         return jsonify({'success': False, 'message': 'Vertex AI client initialization failed.'})
 
+@app.route('/segment-image', methods=['POST'])
+def segment_image_route():
+    if not segmentation_model:
+        return jsonify({'error': 'Segmentation model not initialized.'}), 500
+
+    if 'image' not in request.files:
+        return jsonify({'error': 'No image file provided.'}), 400
+    
+    file = request.files['image']
+    if file.filename == '':
+        return jsonify({'error': 'No selected file.'}), 400
+
+    mode = request.form.get('mode', 'foreground')
+    prompt = request.form.get('prompt', None)
+    
+    # Save the uploaded file temporarily
+    temp_path = os.path.join('static', 'uploads', file.filename)
+    file.save(temp_path)
+
+    result = segment_image_internal(
+        model=segmentation_model,
+        input_file=temp_path,
+        segmentation_mode=mode,
+        prompt=prompt
+    )
+
+    # Clean up the temporary file
+    os.remove(temp_path)
+
+    if 'error' in result:
+        return jsonify(result), 500
+    
+    mask_urls = []
+    for i, mask_data in enumerate(result.get('masks', [])):
+        mask_bytes = base64.b64decode(mask_data)
+        mask_filename = f"mask_{int(time.time() * 1000)}_{i}.png"
+        mask_save_path = os.path.join('static', 'uploads', mask_filename)
+        with open(mask_save_path, 'wb') as f:
+            f.write(mask_bytes)
+        mask_urls.append(f"/{mask_save_path}")
+
+    operation_id = f"seg_op_{int(time.time() * 1000)}"
+    input_payload = {'mode': mode, 'prompt': prompt, 'image': file.filename}
+    output_payload = {'masks': mask_urls}
+    new_history = GenerationHistory(
+        operation_id=operation_id,
+        prompt=f"Segmentation: {prompt or mode}",
+        status='completed',
+        input_payload=json.dumps(input_payload),
+        output_payload=json.dumps(output_payload),
+        operation_type='segmentation'
+    )
+    db.session.add(new_history)
+    db.session.commit()
+
+    return jsonify({'masks': mask_urls})
+
+
+@app.route('/vto', methods=['POST'])
+def vto_route():
+    operation_id = f"vto_op_{int(time.time() * 1000)}"
+    person_image_file = request.files.get('person_image')
+    product_image_file = request.files.get('product_image')
+    mask_image_file = request.files.get('mask_image')
+
+    person_image_uri = request.form.get('person_image_uri')
+    product_image_uri = request.form.get('product_image_uri')
+
+    if not (person_image_file or person_image_uri) or not (product_image_file or product_image_uri):
+        return jsonify({'error': 'Person and product images (either file or URI) are required.'}), 400
+
+    person_image_bytes = person_image_file.read() if person_image_file else None
+    product_image_bytes = product_image_file.read() if product_image_file else None
+    mask_image_bytes = mask_image_file.read() if mask_image_file else None
+
+    prompt = request.form.get('prompt')
+    person_description = request.form.get('person_description')
+    product_description = request.form.get('product_description')
+    model_endpoint_name = request.form.get('model_endpoint_name', 'virtual-try-on-exp-05-31')
+    sample_count = request.form.get('sample_count', type=int)
+    base_steps = request.form.get('base_steps', type=int)
+    seed = request.form.get('seed', type=int)
+
+    try:
+        vto_project_id = "cloud-lvm-training-nonprod"
+        response = call_virtual_try_on(
+            client=vto_client,
+            project_id=vto_project_id,
+            location=LOCATION,
+            model_endpoint_name=model_endpoint_name,
+            person_image_bytes=person_image_bytes,
+            product_image_bytes=product_image_bytes,
+            mask_image_bytes=mask_image_bytes,
+            person_image_uri=person_image_uri,
+            product_image_uri=product_image_uri,
+            prompt=prompt,
+            person_description=person_description,
+            product_description=product_description,
+            sample_count=sample_count,
+            base_steps=base_steps,
+            seed=seed,
+        )
+
+        generated_image_pil = prediction_to_pil_image(response.predictions[0])
+        
+        # Save the generated image locally to be displayed in the history
+        image_filename = f"{operation_id}.png"
+        image_save_path = os.path.join('static', 'uploads', image_filename)
+        generated_image_pil.save(image_save_path)
+        
+        relative_image_path = f"/{image_save_path}"
+
+        # Save the generated image to a bytes buffer for the response
+        buf = io.BytesIO()
+        generated_image_pil.save(buf, format='PNG')
+        img_str = base64.b64encode(buf.getvalue()).decode('utf-8')
+
+        input_payload = {
+            'prompt': prompt,
+            'person_description': person_description,
+            'product_description': product_description,
+            'model_endpoint_name': model_endpoint_name,
+            'sample_count': sample_count,
+            'base_steps': base_steps,
+            'person_image_uri': person_image_uri,
+            'product_image_uri': product_image_uri,
+        }
+        output_payload = {'generated_image': '...'} # Don't save the full image string
+        new_history = GenerationHistory(
+            operation_id=operation_id,
+            prompt=prompt or "VTO Generation",
+            status='completed',
+            input_payload=json.dumps(input_payload),
+            output_payload=json.dumps(output_payload),
+            operation_type='vto',
+            image_path=relative_image_path
+        )
+        db.session.add(new_history)
+        db.session.commit()
+
+        return jsonify({'generated_image': img_str})
+
+    except Exception as e:
+        new_history = GenerationHistory(
+            operation_id=operation_id,
+            prompt=request.form.get('prompt') or "VTO Generation",
+            status='failed',
+            error_message=str(e),
+            operation_type='vto'
+        )
+        db.session.add(new_history)
+        db.session.commit()
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/product-recontext', methods=['POST'])
+def product_recontext():
+    operation_id = f"recontext_op_{int(time.time() * 1000)}"
+    image_files = request.files.getlist('images')
+    image_uris = request.form.getlist('image_uris')
+    prompt = request.form.get('prompt')
+    product_description = request.form.get('product_description')
+    disable_prompt_enhancement = request.form.get('disable_prompt_enhancement', 'false').lower() == 'true'
+    sample_count = request.form.get('sample_count', 1, type=int)
+    base_steps = request.form.get('base_steps', type=int)
+    safety_setting = request.form.get('safety_setting')
+    person_generation = request.form.get('person_generation')
+    aspect_ratio = request.form.get('aspect_ratio')
+    resolution = request.form.get('resolution')
+    seed = request.form.get('seed', type=int)
+
+    image_bytes_list = [base64.b64encode(file.read()).decode('utf-8') for file in image_files]
+
+    try:
+        response = call_product_recontext(
+            image_bytes_list=image_bytes_list,
+            image_uris_list=image_uris,
+            prompt=prompt,
+            product_description=product_description,
+            disable_prompt_enhancement=disable_prompt_enhancement,
+            sample_count=sample_count,
+            base_steps=base_steps,
+            safety_setting=safety_setting,
+            person_generation=person_generation,
+            aspect_ratio=aspect_ratio,
+            resolution=resolution,
+            seed=seed,
+        )
+
+        predictions = []
+        saved_image_path = None
+        for i, prediction in enumerate(response.predictions):
+            pil_image = prism_prediction_to_pil_image(prediction)
+            
+            # Save the first generated image locally for the history
+            if i == 0:
+                image_filename = f"{operation_id}.png"
+                image_save_path = os.path.join('static', 'uploads', image_filename)
+                pil_image.save(image_save_path)
+                saved_image_path = f"/{image_save_path}"
+
+            buf = io.BytesIO()
+            pil_image.save(buf, format='PNG')
+            img_str = base64.b64encode(buf.getvalue()).decode('utf-8')
+            predictions.append(img_str)
+
+        input_payload = {
+            'prompt': prompt,
+            'product_description': product_description,
+            'disable_prompt_enhancement': disable_prompt_enhancement,
+            'sample_count': sample_count,
+            'base_steps': base_steps,
+            'safety_setting': safety_setting,
+            'person_generation': person_generation,
+            'aspect_ratio': aspect_ratio,
+            'resolution': resolution,
+            'image_uris': image_uris,
+        }
+        output_payload = {'predictions': '...'} # Don't save the full image strings
+        new_history = GenerationHistory(
+            operation_id=operation_id,
+            prompt=prompt or "Product Recontext",
+            status='completed',
+            input_payload=json.dumps(input_payload),
+            output_payload=json.dumps(output_payload),
+            operation_type='recontext',
+            image_path=saved_image_path
+        )
+        db.session.add(new_history)
+        db.session.commit()
+
+        return jsonify({'predictions': predictions})
+
+    except Exception as e:
+        new_history = GenerationHistory(
+            operation_id=operation_id,
+            prompt=request.form.get('prompt') or "Product Recontext",
+            status='failed',
+            error_message=str(e),
+            operation_type='recontext'
+        )
+        db.session.add(new_history)
+        db.session.commit()
+        return jsonify({'error': str(e)}), 500
 
 @app.route('/get-usage-report', methods=['GET'])
 def get_usage_report():
@@ -603,6 +876,266 @@ def get_usage_report():
     except Exception as e:
         return jsonify({'error': f'Failed to generate usage report: {str(e)}'})
 
+def veo_edit_internal(app_context, operation_id, prompt, parameters, mask_gcs, mask_mime_type, mask_mode, video_gcs, image_uri, last_frame_uri, camera_control):
+    with app_context:
+        history_item = GenerationHistory.query.filter_by(operation_id=operation_id).first()
+        try:
+            history_item.status = 'running'
+            db.session.commit()
+
+            op = generate_veo_video(
+                project_id=PROJECT_ID,
+                location=LOCATION,
+                prompt=prompt,
+                parameters=parameters,
+                mask_gcs=mask_gcs,
+                mask_mime_type=mask_mime_type,
+                mask_mode=mask_mode,
+                video_uri=video_gcs,
+                image_uri=image_uri,
+                last_frame_uri=last_frame_uri,
+                camera_control=camera_control,
+            )
+
+            if "error" in op:
+                history_item.status = 'failed'
+                history_item.error_message = op["error"]["message"]
+            elif "response" in op and "videos" in op["response"]:
+                video_info = op["response"]["videos"][0]
+                gcs_uri = video_info["gcsUri"]
+                
+                # Download the video from GCS to a local path
+                gcs_bucket = gcs_uri.split('/')[2]
+                gcs_blob = '/'.join(gcs_uri.split('/')[3:])
+                local_path = os.path.join(VIDEO_DIR, f"{operation_id}.mp4")
+                download_from_gcs(gcs_bucket, gcs_blob, local_path)
+
+                history_item.status = 'completed'
+                history_item.video_path = f"/{local_path}"
+                history_item.output_payload = json.dumps(op['response'])
+            else:
+                history_item.status = 'failed'
+                history_item.error_message = "Operation finished with no error but no video was generated."
+        except Exception as e:
+            history_item.status = 'failed'
+            history_item.error_message = str(e)
+        db.session.commit()
+
+
+@app.route('/veo-edit', methods=['POST'])
+def veo_edit_route():
+    operation_id = f"veo_edit_op_{int(time.time() * 1000)}"
+    
+    prompt = request.form.get('prompt', '')
+    video_gcs = request.form.get('video_gcs')
+    mask_gcs = request.form.get('mask_gcs')
+    mask_mime_type = request.form.get('mask_mime_type')
+    mask_mode = request.form.get('mask_mode')
+    aspect_ratio = request.form.get('aspect_ratio', '16:9')
+    enhance_prompt = request.form.get('enhance_prompt', 'false').lower() == 'true'
+    sample_count = request.form.get('sample_count', 1, type=int)
+    duration = request.form.get('duration', 8, type=int)
+
+    video_file = request.files.get('video_file')
+    mask_file = request.files.get('mask_file')
+
+    if not (video_gcs or video_file):
+        return jsonify({'error': 'Video GCS URI or file is required.'}), 400
+    if not (mask_gcs or mask_file):
+        return jsonify({'error': 'Mask GCS URI or file is required.'}), 400
+
+    try:
+        # Handle file uploads
+        if video_file:
+            temp_video_path = os.path.join('static', 'uploads', f"{operation_id}_{video_file.filename}")
+            video_file.save(temp_video_path)
+            video_gcs = upload_veo_to_gcs(PROJECT_ID, GCS_BUCKET_NAME, temp_video_path, f"veo-edit-inputs/{operation_id}_{video_file.filename}")
+            os.remove(temp_video_path)
+            if not video_gcs:
+                return jsonify({'error': 'Failed to upload video to GCS.'}), 500
+
+        if mask_file:
+            temp_mask_path = os.path.join('static', 'uploads', f"{operation_id}_{mask_file.filename}")
+            mask_file.save(temp_mask_path)
+            mask_gcs = upload_veo_to_gcs(PROJECT_ID, GCS_BUCKET_NAME, temp_mask_path, f"veo-edit-inputs/{operation_id}_{mask_file.filename}")
+            os.remove(temp_mask_path)
+            if not mask_gcs:
+                return jsonify({'error': 'Failed to upload mask to GCS.'}), 500
+
+        output_gcs_path = f"gs://{GCS_BUCKET_NAME}/veo-edit-outputs/"
+        parameters = {
+            "storageUri": output_gcs_path,
+            "aspectRatio": aspect_ratio,
+            "enhancePrompt": enhance_prompt,
+            "sampleCount": sample_count,
+            "durationSeconds": duration,
+        }
+
+        input_payload = {
+            'prompt': prompt, 'video_gcs': video_gcs, 'mask_gcs': mask_gcs,
+            'mask_mime_type': mask_mime_type, 'mask_mode': mask_mode, 'parameters': parameters
+        }
+        new_history = GenerationHistory(
+            operation_id=operation_id,
+            prompt=prompt or f"VEO Edit: {mask_mode}",
+            status='queued',
+            input_payload=json.dumps(input_payload),
+            operation_type='veo_edit'
+        )
+        db.session.add(new_history)
+        db.session.commit()
+
+        thread = threading.Thread(target=veo_edit_internal, args=(
+            app.app_context(), operation_id, prompt, parameters, mask_gcs, mask_mime_type, mask_mode, video_gcs, None, None, None
+        ))
+        thread.start()
+
+        return jsonify({'operation_id': operation_id})
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/veo-advanced-edit', methods=['POST'])
+def veo_advanced_edit_route():
+    operation_id = f"veo_advanced_op_{int(time.time() * 1000)}"
+    
+    prompt = request.form.get('prompt', '')
+    aspect_ratio = request.form.get('aspect_ratio', '16:9')
+    enhance_prompt = request.form.get('enhance_prompt', 'false').lower() == 'true'
+    duration = request.form.get('duration', 8, type=int)
+    camera_control = request.form.get('camera_control')
+
+    image_gcs = request.form.get('image_gcs')
+    video_gcs = request.form.get('video_gcs')
+    last_frame_gcs = request.form.get('last_frame_gcs')
+
+    image_file = request.files.get('image_file')
+    video_file = request.files.get('video_file')
+    last_frame_file = request.files.get('last_frame_file')
+
+    try:
+        # Handle file uploads
+        if image_file:
+            temp_image_path = os.path.join('static', 'uploads', f"{operation_id}_{image_file.filename}")
+            image_file.save(temp_image_path)
+            image_gcs = upload_veo_to_gcs(PROJECT_ID, GCS_BUCKET_NAME, temp_image_path, f"veo-advanced-inputs/{operation_id}_{image_file.filename}")
+            os.remove(temp_image_path)
+            if not image_gcs:
+                return jsonify({'error': 'Failed to upload image to GCS.'}), 500
+
+        if video_file:
+            temp_video_path = os.path.join('static', 'uploads', f"{operation_id}_{video_file.filename}")
+            video_file.save(temp_video_path)
+            video_gcs = upload_veo_to_gcs(PROJECT_ID, GCS_BUCKET_NAME, temp_video_path, f"veo-advanced-inputs/{operation_id}_{video_file.filename}")
+            os.remove(temp_video_path)
+            if not video_gcs:
+                return jsonify({'error': 'Failed to upload video to GCS.'}), 500
+
+        if last_frame_file:
+            temp_last_frame_path = os.path.join('static', 'uploads', f"{operation_id}_{last_frame_file.filename}")
+            last_frame_file.save(temp_last_frame_path)
+            last_frame_gcs = upload_veo_to_gcs(PROJECT_ID, GCS_BUCKET_NAME, temp_last_frame_path, f"veo-advanced-inputs/{operation_id}_{last_frame_file.filename}")
+            os.remove(temp_last_frame_path)
+            if not last_frame_gcs:
+                return jsonify({'error': 'Failed to upload last frame to GCS.'}), 500
+
+        output_gcs_path = f"gs://{GCS_BUCKET_NAME}/veo-advanced-outputs/"
+        parameters = {
+            "storageUri": output_gcs_path,
+            "aspectRatio": aspect_ratio,
+            "enhancePrompt": enhance_prompt,
+            "durationSeconds": duration,
+        }
+
+        input_payload = {
+            'prompt': prompt, 'video_gcs': video_gcs, 'image_gcs': image_gcs,
+            'last_frame_gcs': last_frame_gcs, 'camera_control': camera_control, 'parameters': parameters
+        }
+        new_history = GenerationHistory(
+            operation_id=operation_id,
+            prompt=prompt or f"VEO Advanced Edit",
+            status='queued',
+            input_payload=json.dumps(input_payload),
+            operation_type='veo_advanced_edit'
+        )
+        db.session.add(new_history)
+        db.session.commit()
+
+        thread = threading.Thread(target=veo_edit_internal, args=(
+            app.app_context(), operation_id, prompt, parameters, None, None, None, video_gcs, image_gcs, last_frame_gcs, camera_control
+        ))
+        thread.start()
+
+        return jsonify({'operation_id': operation_id})
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/imagen-edit', methods=['POST'])
+def imagen_edit_route():
+    if not imagen_client:
+        return jsonify({'error': 'Imagen client not initialized.'}), 500
+
+    operation_id = f"imagen_edit_op_{int(time.time() * 1000)}"
+    edit_prompt = request.form.get('prompt')
+    edit_mode = request.form.get('edit_mode')
+    mask_mode = request.form.get('mask_mode')
+    
+    original_image_file = request.files.get('original_image')
+    mask_image_file = request.files.get('mask_image')
+
+    if not original_image_file:
+        return jsonify({'error': 'Original image is required.'}), 400
+
+    original_image_bytes = original_image_file.read()
+    mask_image_bytes = mask_image_file.read() if mask_image_file else None
+
+    try:
+        if edit_mode == "EDIT_MODE_DEFAULT": # Mask-free
+            result = imagenedit.edit_image_mask_free(imagen_client, edit_prompt, original_image_bytes)
+        else:
+            result = imagenedit.edit_image_with_mask(
+                client=imagen_client,
+                edit_prompt=edit_prompt,
+                original_image_bytes=original_image_bytes,
+                mask_image_bytes=mask_image_bytes,
+                mask_mode=mask_mode,
+                edit_mode=edit_mode
+            )
+
+        edited_image_bytes = imagenedit.get_bytes_from_pil(result.generated_images[0].image._pil_image)
+        
+        # Save original and edited images
+        original_image_filename = f"{operation_id}_original.png"
+        original_image_save_path = os.path.join('static', 'uploads', original_image_filename)
+        with open(original_image_save_path, 'wb') as f:
+            f.write(original_image_bytes)
+        
+        edited_image_filename = f"{operation_id}_edited.png"
+        edited_image_save_path = os.path.join('static', 'uploads', edited_image_filename)
+        with open(edited_image_save_path, 'wb') as f:
+            f.write(edited_image_bytes)
+
+        # Save to history
+        new_history = GenerationHistory(
+            operation_id=operation_id,
+            prompt=edit_prompt,
+            status='completed',
+            image_path=f"/{original_image_save_path}",
+            output_payload=json.dumps({'edited_image_path': f"/{edited_image_save_path}"}),
+            operation_type='imagen_edit'
+        )
+        db.session.add(new_history)
+        db.session.commit()
+
+        return jsonify({
+            'original_image_url': f"/{original_image_save_path}",
+            'edited_image_url': f"/{edited_image_save_path}"
+        })
+
+    except Exception as e:
+        print(f"Error during Imagen edit: {e}")
+        return jsonify({'error': str(e)}), 500
 
 
 if __name__ == '__main__':
