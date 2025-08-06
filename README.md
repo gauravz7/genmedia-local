@@ -4,11 +4,35 @@ A web-based application for prompt engineering, video generation, and creative A
 
 ## Features
 
-- **AI-Powered Prompt Generation & Refinement:** Use the Gemini 2.5 Flash model to generate and refine detailed JSON prompts for Veo.
-- **Text-to-Video & Image-to-Video:** Generate videos from text prompts or images with customizable parameters.
-- **Batch Processing:** Queue multiple jobs to run in parallel.
-- **Persistent History:** All tasks are saved to a local SQLite database for review.
-- **Usage Dashboard:** View reports based on your local generation history.
+- **Prompt Engineering:** A dedicated interface for crafting and refining detailed prompts for generative models.
+- **Video Generation:**
+    - **Text-to-Video:** Generate videos from text prompts using Veo models.
+    - **Image-to-Video:** Animate still images with text prompts.
+    - **VEO Edit & Veo2 Controls:** Advanced video editing and inpainting/outpainting capabilities.
+- **Image Generation & Editing:**
+    - **Imagen3 Editing:** Advanced image editing with inpainting, outpainting, and mask-free editing.
+    - **Virtual Try-On (VTO):** Place apparel on models.
+    - **Product Recontextualization:** Change the background of product images.
+    - **Segmentation:** Isolate subjects from the background.
+- **Centralized History:** All generation tasks are saved to a local SQLite database for review.
+- **Settings & Usage:** Configure your GCP settings and view usage reports based on local history.
+- **Modular & Scalable:** The application is broken into logical modules for easy extension.
+- **Light & Dark Mode:** Toggle between themes for your comfort.
+
+## Project Structure
+
+The application is organized into the following modules:
+
+-   `app.py`: The main entry point for the Flask application. It creates the app instance, initializes extensions, and registers routes.
+-   `config.py`: Contains the application's configuration settings, such as project IDs and database URIs.
+-   `models.py`: Defines the SQLAlchemy database models (`GenerationHistory` and `SystemInstruction`).
+-   `database.py`: Contains the `init_db` function to create the database tables.
+-   `extensions.py`: Initializes the `SQLAlchemy` extension to avoid circular dependencies.
+-   `utils.py`: A collection of helper functions for tasks like GCS uploads, prompt generation, and video processing.
+-   `services.py`: Contains the core business logic for each of the application's services.
+-   `routes.py`: Defines all the Flask routes and maps them to the appropriate service functions.
+-   `static/`: Contains the CSS and JavaScript files for the frontend.
+-   `templates/`: Contains the `index.html` file, which serves as the main UI for the application.
 
 ## Local Setup and Usage
 
@@ -58,7 +82,7 @@ The `start_local.sh` script will tell you the exact command to run to stop the s
 
 **For direct terminal execution:**
 ```bash
-python app_noservice.py
+python app.py
 ```
 
 ## Cloud Deployment (Cloud Run)
@@ -101,6 +125,6 @@ This error means another process is using the port. This can happen if a previou
 
 To manually kill the process:
 ```bash
-pkill -f app_noservice.py
+pkill -f app.py
 ```
 Then, restart the application using `./start_local.sh`.

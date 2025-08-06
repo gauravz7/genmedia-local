@@ -27,38 +27,30 @@
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="prompt-tab" data-bs-toggle="tab" data-bs-target="#prompt-generator" type="button" role="tab" aria-controls="prompt-generator" aria-selected="true">Prompt Generator</button>
             </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="video-tab" data-bs-toggle="tab" data-bs-target="#video-generation" type="button" role="tab" aria-controls="video-generation" aria-selected="false">Video Generation</button>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Video</a>
+                <ul class="dropdown-menu">
+                    <li><button class="dropdown-item" id="video-tab" data-bs-toggle="tab" data-bs-target="#video-generation" type="button" role="tab" aria-controls="video-generation" aria-selected="false">Video Generation</button></li>
+                    <li><button class="dropdown-item" id="image-video-tab" data-bs-toggle="tab" data-bs-target="#image-video-generator" type="button" role="tab" aria-controls="image-video-generator" aria-selected="false">Image to Video</button></li>
+                    <li><button class="dropdown-item" id="veo-edit-tab" data-bs-toggle="tab" data-bs-target="#veo-edit" type="button" role="tab" aria-controls="veo-edit" aria-selected="false">VEO Edit</button></li>
+                    <li><button class="dropdown-item" id="veo-advanced-edit-tab" data-bs-toggle="tab" data-bs-target="#veo-advanced-edit" type="button" role="tab" aria-controls="veo-advanced-edit" aria-selected="false">Veo2 Controls</button></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Image</a>
+                <ul class="dropdown-menu">
+                    <li><button class="dropdown-item" id="imagen-edit-tab" data-bs-toggle="tab" data-bs-target="#imagen-edit" type="button" role="tab" aria-controls="imagen-edit" aria-selected="false">Imagen3 Editing</button></li>
+                    <li><button class="dropdown-item" id="editor-tab" data-bs-toggle="tab" data-bs-target="#image-editor" type="button" role="tab" aria-controls="image-editor" aria-selected="false">Image Editor</button></li>
+                    <li><button class="dropdown-item" id="vto-tab" data-bs-toggle="tab" data-bs-target="#vto" type="button" role="tab" aria-controls="vto" aria-selected="false">Virtual Try-On</button></li>
+                    <li><button class="dropdown-item" id="product-recontext-tab" data-bs-toggle="tab" data-bs-target="#product-recontext" type="button" role="tab" aria-controls="product-recontext" aria-selected="false">Product Recontext</button></li>
+                    <li><button class="dropdown-item" id="segmentation-tab" data-bs-toggle="tab" data-bs-target="#segmentation" type="button" role="tab" aria-controls="segmentation" aria-selected="false">Segmentation</button></li>
+                </ul>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="history-tab" data-bs-toggle="tab" data-bs-target="#prompt-history" type="button" role="tab" aria-controls="prompt-history" aria-selected="false">Prompt History</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="image-video-tab" data-bs-toggle="tab" data-bs-target="#image-video-generator" type="button" role="tab" aria-controls="image-video-generator" aria-selected="false">Image to Video</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="editor-tab" data-bs-toggle="tab" data-bs-target="#image-editor" type="button" role="tab" aria-controls="image-editor" aria-selected="false">Image Editor</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="segmentation-tab" data-bs-toggle="tab" data-bs-target="#segmentation" type="button" role="tab" aria-controls="segmentation" aria-selected="false">Segmentation</button>
+                <button class="nav-link" id="history-tab" data-bs-toggle="tab" data-bs-target="#prompt-history" type="button" role="tab" aria-controls="prompt-history" aria-selected="false">History</button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="settings-tab" data-bs-toggle="tab" data-bs-target="#settings" type="button" role="tab" aria-controls="settings" aria-selected="false">Settings</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="vto-tab" data-bs-toggle="tab" data-bs-target="#vto" type="button" role="tab" aria-controls="vto" aria-selected="false">Virtual Try-On</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="product-recontext-tab" data-bs-toggle="tab" data-bs-target="#product-recontext" type="button" role="tab" aria-controls="product-recontext" aria-selected="false">Product Recontext</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="veo-edit-tab" data-bs-toggle="tab" data-bs-target="#veo-edit" type="button" role="tab" aria-controls="veo-edit" aria-selected="false">VEO Edit</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="imagen-edit-tab" data-bs-toggle="tab" data-bs-target="#imagen-edit" type="button" role="tab" aria-controls="imagen-edit" aria-selected="false">Imagen3 Editing</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="veo-advanced-edit-tab" data-bs-toggle="tab" data-bs-target="#veo-advanced-edit" type="button" role="tab" aria-controls="veo-advanced-edit" aria-selected="false">VEO Advanced Edit</button>
             </li>
         </ul>
 
@@ -648,7 +640,7 @@ YAML:
             <!-- VEO Advanced Edit Tab -->
             <div class="tab-pane fade" id="veo-advanced-edit" role="tabpanel" aria-labelledby="veo-advanced-edit-tab">
                 <div class="mt-4">
-                    <h3>VEO Advanced Video Editing</h3>
+                    <h3>Veo2 Controls</h3>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group mb-3">
@@ -837,7 +829,7 @@ YAML:
                             </div>
                             <button id="run-vto-btn" class="btn btn-primary">Run Virtual Try-On</button>
                         </div>
-                        <div class="col-.md-6">
+                        <div class="col-md-6">
                             <h5>Generated Image</h5>
                             <img id="vto-generated-image" src="" class="img-fluid" alt="Generated Image">
                             <button id="send-vto-to-video-tab-btn" class="btn btn-primary mt-2" disabled>Use this Image for Video</button>

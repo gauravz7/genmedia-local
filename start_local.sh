@@ -4,13 +4,18 @@
 APP_PATH=$(cd "$(dirname "$0")" && pwd)
 
 # Define service and file paths
-SERVICE_NAME="com.google.app_noservice.$$"
+SERVICE_NAME="com.google.app"
 PLIST_PATH="$HOME/Library/LaunchAgents/$SERVICE_NAME.plist"
 LOG_FILE="$APP_PATH/app.log"
 ERROR_LOG_FILE="$APP_PATH/app.error.log"
 PYTHON_PATH=$(which python)
 
-echo "Creating launchd service file at $PLIST_PATH..."
+echo "Stopping and removing any existing service..."
+launchctl unload "$PLIST_PATH" 2>/dev/null
+rm "$PLIST_PATH" 2>/dev/null
+sleep 1
+
+echo "Creating new launchd service file at $PLIST_PATH..."
 
 # Create the .plist file with dynamic paths
 cat > "$PLIST_PATH" << EOL
@@ -23,7 +28,7 @@ cat > "$PLIST_PATH" << EOL
     <key>ProgramArguments</key>
     <array>
         <string>$PYTHON_PATH</string>
-        <string>$APP_PATH/app_noservice.py</string>
+        <string>$APP_PATH/app.py</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
@@ -38,15 +43,6 @@ cat > "$PLIST_PATH" << EOL
 </dict>
 </plist>
 EOL
-
-echo "Checking for existing service..."
-
-# Unload the service if it's already loaded to ensure a fresh start
-if launchctl list | grep -q "$SERVICE_NAME"; then
-    echo "Service is already loaded. Unloading it first..."
-    launchctl unload "$PLIST_PATH"
-    sleep 1
-fi
 
 echo "Loading and starting the application service..."
 
